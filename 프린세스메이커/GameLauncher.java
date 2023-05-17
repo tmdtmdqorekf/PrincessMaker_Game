@@ -15,7 +15,7 @@ public class GameLauncher {
         Character user = new Character(username);
         //행동 클래스 객체 생성
 
-        System.out.println("%s님 환영합니다 , 당신의 성장을 응원합니다!");
+        System.out.printf("%s님 환영합니다 , 당신의 성장을 응원합니다!",username);
         System.out.print("다음 선택지 중 하나를 선택하세요");
 
         while(dayTime < 240){
