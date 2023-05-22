@@ -2,57 +2,38 @@ package 프린세스메이커;
 
 public class Character {
     
-    String name; //private?
-    int health;
-    int intelligence;
-    int charm;
-    int morality;
+    String name;
+    static int health = 10;
+    static int intelligence = 10;
+    static int charm = 10;
+    static int morality = 10;
 
     public Character(String name){
         this.name = name;
-        this.health = 10;
-        this.intelligence = 10;
-        this.charm = 10;
-        this.morality = 10;
+        
+    }
+
+    public Character(){
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+    public static void plusHealth(int health) {
+        Character.health += health;
     }
 
-    public int getHealth() {
-        return health;
+    public static void plusIntelligence(int intelligence) {
+        Character.intelligence += intelligence;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public static void plusCharm(int charm) {
+        Character.charm += charm;
     }
 
-    public int getIntelligence() {
-        return this.intelligence;
-    }
-
-    public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
-    }
-
-    public int getCharm() {
-        return this.charm;
-    }
-
-    public void setCharm(int charm) {
-        this.charm = charm;
-    }
-
-    public int getMorality() {
-        return this.morality;
-    }
-
-    public void setMorality(int morality) {
-        this.morality = morality;
+    public static void plusMorality(int morality) {
+        Character.morality += morality;
     }
 }
