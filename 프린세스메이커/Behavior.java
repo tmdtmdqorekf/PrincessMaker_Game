@@ -6,10 +6,9 @@ import java.util.Scanner;
 public class Behavior {
     String name;
 
-    Behavior(Character user) {
-        this.name = user.name;
+    Behavior(Character user){
+        this.name = user.name; //생성자에서 이름 받아옴
     }
-
     // 1. 공부하기
     public void study() {
         Scanner in = new Scanner(System.in);
@@ -18,17 +17,14 @@ public class Behavior {
         System.out.println("1.윤리 수업 2.발표 수업 3.글쓰기 수업 4.수학 수업");
         System.out.print("행동 입력 : ");
         int num = in.nextInt(); //행동 입력 받음
-
-        if(num == 1) {
+        
+        if(num == 1){
             ethics();
-        }
-        else if(num == 2) {
+        }else if(num == 2){
             presentation();
-        }
-        else if(num == 3) {
+        }else if(num == 3){
             writing();
-        }
-        else if(num == 4) {
+        }else if(num == 4){
             math();
         }
     }
@@ -40,6 +36,8 @@ public class Behavior {
         System.out.println("윤리 미니게임 타임 !");
 
         // 윤리 MiniGame class
+        MiniGame ethicsGame = new MiniGame();
+        ethicsGame.ethics_game();
     }
 
     // 1-2. 발표 수업
@@ -55,6 +53,8 @@ public class Behavior {
         System.out.println(name + " 공주: " + user_presentation);
 
         System.out.println("발표 수업은 아주 좋은 귀감이 되었다.");
+
+        Character.plusIntelligence(5);
     }
 
     // 1-3. 글쓰기 수업
@@ -62,43 +62,22 @@ public class Behavior {
         System.out.println("-- 글쓰기 수업 시간 --");
         System.out.println("퍼시픽 교수: 공주님 받아쓰기 하실 준비 되셨나요?");
 
-//        쓰기 MiniGame class
-//
-//        아래는 대충 이런 식으로 구현하라는 뜻
-
-//        String sentence = "아무말1";
-//        String user_sentence = in.nextLine();
-//
-//        if (sentence.equals(user_sentence)) { // String 비교로 수정함
-//            System.out.println("정답");
-//        }
+        MiniGame writeGame = new MiniGame();
+        writeGame.writing_game();
     }
 
     // 1-4. 수학 수업
     public void math() {
-        Scanner in = new Scanner(System.in);
 
         System.out.println("-- 수학 수업 시간 --");
         System.out.println("제니퍼 교수: " + name + " 공주님 공부해오셨죠? 이제 문제를 풀어봅시다.");
 
         System.out.println("수학 미니게임 타임 !");
 
+        MiniGame mathGame = new MiniGame();
+        mathGame.math_game();
         // 수학 MiniGame class
 
-//        // MiniGame class 에서 결과 score return 받기
-//        int score = MiniGame.calculateScore(); // 메서드명은 수정 예정
-//        if (score >= 90) {
-//            System.out.println("제니퍼 교수: 역시 공주님이세요! 이러다가 저처럼 교수되시겠어요. 호호");
-//        } else if (score >= 70) {
-//            System.out.println("제니퍼 교수: 괜찮아요 공주님. 실수정도야 누구나 하는거 아니겠어요?");
-//        } else if (score >= 50) {
-//            System.out.println("제니퍼 교수: ...");
-//            System.out.println("제니퍼 교수: 수학 수업 자주 들으러 오세요 공주님");
-//        } else {
-//            System.out.println("제니퍼 교수: ...");
-//            System.out.println("제니퍼 교수: 다음엔 꼭 공부해오세요 공주님!!");
-//        }
-        Character.plusIntelligence(5);
     }
 
     // 2. 독서하기
@@ -145,7 +124,7 @@ public class Behavior {
 
             System.out.println("듣는 사람이 누구냐에 따라서 화술법은 달라지기 마련인데요, " +
                     "듣는 사람을 먼저 파악해두어야 말할 때 더 자신감 있게 말할 수 있습니다.");
-            System.out.println("자신있게말하기에서 조심해야 할것은 내가 하기 쉽게 하는 것이 중요한 것이 아니라, 듣는 사람이 " +
+            System.out.println("자신있게 말하기에서 조심해야 할것은 내가 하기 쉽게 하는 것이 중요한 것이 아니라, 듣는 사람이 " +
                     "알아듣기 쉽게 말해야 한다것입니다. 말하는 사람이 말하기 쉽다면 듣는 사람이 이해하기 쉬울 " +
                     "확률이 높겠죠? 하지만, 너무 간단명료하게 말하는 것은 듣는 사람에게 설명부족으로 " +
                     "다가갈 확률도 높아질 수 있답니다. 말할 때에는 핵심과 적절한 설명으로 이해를 얻어야한답니다.");
@@ -170,7 +149,7 @@ public class Behavior {
 
         System.out.println("-- 책을 모두 읽었습니다. --");
         System.out.println(name + " 공주: (역시 책을 읽으면 머리가 똑똑해지는 기분이야! 이 느낌을 기억하도록 독후감을 쓸까?)");
-        System.out.print("독후감을 쓰시겠습니까? yes/no");
+        System.out.print("독후감을 쓰시겠습니까? yes/no : ");
         String write_essay = in.next();
 
         // 독후감
@@ -188,14 +167,19 @@ public class Behavior {
             }
             System.out.println();
             System.out.println(book_essay);
+
+
+            Character.plusIntelligence(5);
         }
         else {
             System.out.println(name + " 공주: (음.. 그냥 다음에 쓰자.)");
+
+            Character.plusIntelligence(3);
         }
     }
 
     // 3. 운동하기
-    public void exercise() {
+    public  void exercise() {
         Scanner in = new Scanner(System.in);
 
         System.out.println("크리스 범스테드 트레이너: 공주님 단백질 챙겨 드셨죠? 아니란 말은 하지 말아주세요.");
@@ -271,6 +255,8 @@ public class Behavior {
         System.out.println("화장 미니게임 타임 !");
 
         // 화장 miniGame class
+        MiniGame makeupGame = new MiniGame();
+        makeupGame.makeUp_game();
 
     }
 
@@ -295,12 +281,5 @@ public class Behavior {
 
         System.out.println("공주는 " + sleepTime + "시간 잠들었다");
     }
-
-    // 6. 프로그램 종료
-    public void finish() {
-        System.out.println("프린세스 메이커 게임 종료");
-
-        // 엔딩
-
-    }
+    
 }
