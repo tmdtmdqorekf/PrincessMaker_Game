@@ -179,7 +179,7 @@ public class Behavior {
     }
 
     // 3. 운동하기
-    public  void exercise() {
+    public void exercise() {
         Scanner in = new Scanner(System.in);
 
         System.out.println("크리스 범스테드 트레이너: 공주님 단백질 챙겨 드셨죠? 아니란 말은 하지 말아주세요.");
@@ -282,4 +282,5 @@ public class Behavior {
         System.out.println("공주는 " + sleepTime + "시간 잠들었다");
     }
     
+
 }

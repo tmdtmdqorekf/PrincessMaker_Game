@@ -37,22 +37,17 @@ public class GameMain {
             if(num == 1){
                 //공부하기 메서드
                 behavior.study();
-                dayTime += 5; //행동 별 세분화 해서 증가 예정
             }else if(num == 2){
                 //독서하기 메서드
                 behavior.read();
-                dayTime += 5;
             }else if(num == 3){
                 //운동하기 메서드
                 behavior.exercise();
-                dayTime += 5;
             }else if(num == 4){
                 //화장하기 메서드
                 behavior.makeUp();
-                dayTime += 5;
             }else if(num == 5){
                 //잠자기 메서드
-                behavior.sleep();
             }else if(num == 6){
                 System.out.println("프린세스 메이커 게임 종료");
                 break;
