@@ -1,230 +1,320 @@
-package princessMaker;
+package PrincessMaker_Game;
 
-import java.util.Random;
 import java.util.Scanner;
+import java.util.Random;
 
 public class MiniGame {
-	public int ethics_game() {
+    public int ethics_game() {
 
-		System.out.println("À±¸®Àû ÀÌ·Ğ ÄûÁî °ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù.");
-		System.out.println("ÄûÁî¿¡ ´ëÇÑ ´äÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+        System.out.println("ìœ¤ë¦¬ì  ì´ë¡  í€´ì¦ˆ ê²Œì„ì„ ì‹œì‘í•©ë‹ˆë‹¤.");
+        System.out.println("í€´ì¦ˆì— ëŒ€í•œ ë‹µì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 
-		// À±¸®Àû ÀÌ·Ğ ÄûÁî ¹®Á¦¿Í Á¤´ä ¹è¿­
-		String[] questions = { "1. À±¸®Àû ÀÌ·Ğ Áß Çàµ¿ °á°ú¿¡ ÃÊÁ¡À» µĞ ÀÌ·ĞÀº?", "2. À±¸®Àû ÀÌ·Ğ Áß ÀÇ¹«¿Í ±ÍÀÎÀ» Áß½ÃÇÏ´Â ÀÌ·ĞÀº?",
-				"3. À±¸®Àû ÀÌ·Ğ Áß °¡Àå Å« Çàº¹À» Ãß±¸ÇÏ´Â ÀÌ·ĞÀº?", "4. À±¸®Àû ÀÌ·Ğ Áß »çÈ¸Àû °è¾à¿¡ ±â¹İÀ» µĞ ÀÌ·ĞÀº?",
-				"5. À±¸®Àû ÀÌ·Ğ Áß »çÈ¸Àû °øµ¿Ã¼ÀÇ ÀÌÀÍÀ» Ãß±¸ÇÏ´Â ÀÌ·ĞÀº?", "6. À±¸®Àû ÀÌ·Ğ Áß °³ÀÎÀÇ ÀÚ¾Æ½ÇÇöÀ» Áß½ÃÇÏ´Â ÀÌ·ĞÀº?", };
-		String[] answers = { "°á°úÁÖÀÇ À±¸®ÇĞ", "ÀÇ¹«·Ğ", "±Ã±ØÀû °¡Ä¡ ÀÌ·Ğ", "»çÈ¸°è¾à·Ğ", "°ø°ø¼±·®ÁÖÀÇ", "ÀÚ±â½ÇÇöÁÖÀÇ", };
+        // ìœ¤ë¦¬ì  ì´ë¡  í€´ì¦ˆ ë¬¸ì œì™€ ì •ë‹µ ë°°ì—´
+        String[] questions = {
+                "1. ìœ¤ë¦¬ì  ì´ë¡  ì¤‘ í–‰ë™ ê²°ê³¼ì— ì´ˆì ì„ ë‘” ì´ë¡ ì€?",
+                "2. ìœ¤ë¦¬ì  ì´ë¡  ì¤‘ ì˜ë¬´ì™€ ê·€ì¸ì„ ì¤‘ì‹œí•˜ëŠ” ì´ë¡ ì€?",
+                "3. ìœ¤ë¦¬ì  ì´ë¡  ì¤‘ ê°€ì¥ í° í–‰ë³µì„ ì¶”êµ¬í•˜ëŠ” ì´ë¡ ì€?",
+                "4. ìœ¤ë¦¬ì  ì´ë¡  ì¤‘ ì‚¬íšŒì  ê³„ì•½ì— ê¸°ë°˜ì„ ë‘” ì´ë¡ ì€?",
+                "5. ìœ¤ë¦¬ì  ì´ë¡  ì¤‘ ì‚¬íšŒì  ê³µë™ì²´ì˜ ì´ìµì„ ì¶”êµ¬í•˜ëŠ” ì´ë¡ ì€?",
+                "6. ìœ¤ë¦¬ì  ì´ë¡  ì¤‘ ê°œì¸ì˜ ìì•„ì‹¤í˜„ì„ ì¤‘ì‹œí•˜ëŠ” ì´ë¡ ì€?"
+        };
+        String[] answers = {
+                "ê²°ê³¼ì£¼ì˜ ìœ¤ë¦¬í•™",
+                "ì˜ë¬´ë¡ ",
+                "ê¶ê·¹ì  ê°€ì¹˜ ì´ë¡ ",
+                "ì‚¬íšŒê³„ì•½ë¡ ",
+                "ê³µê³µì„ ëŸ‰ì£¼ì˜",
+                "ìê¸°ì‹¤í˜„ì£¼ì˜"
+        };
 
-		int ethics_score = 0;
-		Scanner scanner = new Scanner(System.in);
-		Random random = new Random();
+        int ethics_score = 0;
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
-		for (int i = 0; i < 3; i++) {
-			int randomIndex = random.nextInt(questions.length); // ·£´ıÇÑ ÀÎµ¦½º ¼±ÅÃ
-			System.out.println("\n" + questions[randomIndex]);
-			String userAnswer = scanner.nextLine();
+        for (int i = 0; i < 3; i++) {
+            int randomIndex = random.nextInt(questions.length); // ëœë¤í•œ ì¸ë±ìŠ¤ ì„ íƒ
+            System.out.println("\n" + questions[randomIndex]);
+            String userAnswer = scanner.nextLine();
 
-			if (userAnswer.equals(answers[randomIndex])) {
-				System.out.println("Á¤´äÀÔ´Ï´Ù!");
-				ethics_score++;
-			} else {
-				System.out.println("Æ²·È½À´Ï´Ù. Á¤´äÀº " + answers[randomIndex] + "ÀÔ´Ï´Ù.");
-			}
-		}
+            if (userAnswer.equals(answers[randomIndex])) {
+                System.out.println("ì •ë‹µì…ë‹ˆë‹¤!");
+                ethics_score++;
+            } else {
+                System.out.println("í‹€ë ¸ìŠµë‹ˆë‹¤. ì •ë‹µì€ " + answers[randomIndex] + "ì…ë‹ˆë‹¤.");
+            }
+        }
 
-		System.out.println("\n°ÔÀÓÀÌ Á¾·áµÇ¾ú½À´Ï´Ù.");
-		System.out.println("Á¡¼ö: " + ethics_score + "/" + questions.length / 2);
+        System.out.println("\nê²Œì„ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
+        System.out.println("ì ìˆ˜: " + ethics_score + "/" + questions.length / 2);
 
-		return ethics_score;
-	}
+        return ethics_score;
+    }
 
-	public int writing_game() {
-		String[] writing_arr = new String[10];
-		writing_arr[0] = "³·¸»Àº »õ°¡ µè°í ¹ã¸»Àº Áã°¡ µè´Â´Ù.";
-		writing_arr[1] = "´Ê°Ô ¹è¿î µµµÏÁú¿¡ ³¯ »õ´Â ÁÙ ¸ğ¸¥´Ù.";
-		writing_arr[2] = "¶± ÁÙ »ç¶÷Àº ²Şµµ ¾È ²Ù´Âµ¥ ±èÄ©±¹ºÎÅÍ ¸¶½Å´Ù.";
-		writing_arr[3] = "±Àº¬ÀÌµµ ±¸¸£´Â ÀçÁÖ°¡ ÀÖ´Ù.";
-		writing_arr[4] = "°í±â´Â ¾Ã¾î¾ß ¸ÀÀÌ¿ä ¸»Àº ÇØ¾ß ¸ÀÀÌ¶ó.";
-		writing_arr[5] = "°£¿¡ ºÙ¾ú´Ù ¾µ°³¿¡ ºÙ¾ú´Ù ÇÑ´Ù.";
-		writing_arr[6] = "°¡Áö ¸¹Àº ³ª¹«¿¡ ¹Ù¶÷ Àß ³¯ÀÌ ¾ø´Ù.";
-		writing_arr[7] = "°¡´Â ¸»ÀÌ °í¿Í¾ß ¿À´Â ¸»ÀÌ °ö´Ù.";
-		writing_arr[8] = "°³±¸¸® ¿ÃÃ¬ÀÌ Àû »ı°¢ ¸ø ÇÑ´Ù.";
-		writing_arr[9] = "°­ °Ç³Ê ºÒ ±¸°æ.";
+    public int writing_game() {
+        String[] writing_arr = new String[10];
+        writing_arr[0] = "ë‚®ë§ì€ ìƒˆê°€ ë“£ê³  ë°¤ë§ì€ ì¥ê°€ ë“£ëŠ”ë‹¤.";
+        writing_arr[1] = "ëŠ¦ê²Œ ë°°ìš´ ë„ë‘‘ì§ˆì— ë‚  ìƒˆëŠ” ì¤„ ëª¨ë¥¸ë‹¤.";
+        writing_arr[2] = "ë–¡ ì¤„ ì‚¬ëŒì€ ê¿ˆë„ ì•ˆ ê¾¸ëŠ”ë° ê¹€ì¹«êµ­ë¶€í„° ë§ˆì‹ ë‹¤.";
+        writing_arr[3] = "êµ¼ë²µì´ë„ êµ¬ë¥´ëŠ” ì¬ì£¼ê°€ ìˆë‹¤.";
+        writing_arr[4] = "ê³ ê¸°ëŠ” ì”¹ì–´ì•¼ ë§›ì´ìš” ë§ì€ í•´ì•¼ ë§›ì´ë¼.";
+        writing_arr[5] = "ê°„ì— ë¶™ì—ˆë‹¤ ì“¸ê°œì— ë¶™ì—ˆë‹¤ í•œë‹¤.";
+        writing_arr[6] = "ê°€ì§€ ë§ì€ ë‚˜ë¬´ì— ë°”ëŒ ì˜ ë‚ ì´ ì—†ë‹¤.";
+        writing_arr[7] = "ê°€ëŠ” ë§ì´ ê³ ì™€ì•¼ ì˜¤ëŠ” ë§ì´ ê³±ë‹¤.";
+        writing_arr[8] = "ê°œêµ¬ë¦¬ ì˜¬ì±™ì´ ì  ìƒê° ëª» í•œë‹¤.";
+        writing_arr[9] = "ê°• ê±´ë„ˆ ë¶ˆ êµ¬ê²½.";
 
-		int writing_score = 0;
-		Random R1 = new Random();
-		Scanner writing_in = new Scanner(System.in);
+        int writing_score = 0;
+        Random R1 = new Random();
+        Scanner writing_in = new Scanner(System.in);
 
-		for (int i = 1; i < 4; i++) {
-			int writing_rnd = R1.nextInt(writing_arr.length);
-			System.out.println("´ÙÀ½ ¹®ÀåÀ» ¹Ş¾Æ Àû¾îÁÖ¼¼¿ä.");
-			System.out.println(i + "¹ø. " + writing_arr[writing_rnd]);
-			System.out.print("ÀÔ·Â: ");
-			String user_sentence = writing_in.nextLine();
+        for (int i = 1; i < 4; i++) {
+            int writing_rnd = R1.nextInt(writing_arr.length);
+            System.out.println("ë‹¤ìŒ ë¬¸ì¥ì„ ë°›ì•„ ì ì–´ì£¼ì„¸ìš”.");
+            System.out.println(i + "ë²ˆ. " + writing_arr[writing_rnd]);
+            System.out.print("ì…ë ¥: ");
+            String user_sentence = writing_in.nextLine();
 
-			if (writing_arr[writing_rnd].equals(user_sentence)) {
-				System.out.println("Á¤´äÀÔ´Ï´Ù!");
-				writing_score++;
-			} else {
-				System.out.println("¿À´äÀÔ´Ï´Ù.");
-			}
-		}
+            if (writing_arr[writing_rnd].equals(user_sentence)) {
+                System.out.println("ì •ë‹µì…ë‹ˆë‹¤!");
+                writing_score++;
+            } else {
+                System.out.println("ì˜¤ë‹µì…ë‹ˆë‹¤.");
+            }
+        }
 
-		return writing_score;
-	}
+        return writing_score;
+    }
 
-	public int math_game() {
-		Random R2 = new Random();
-		int math_score = 0;
-		Scanner math_in = new Scanner(System.in);
-		System.out.println("´ÙÀ½ ±¸±¸´ÜÀ» º¸°í Á¤´äÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+    public int math_game() {
+        Random R2 = new Random();
+        int math_score = 0;
+        Scanner math_in = new Scanner(System.in);
+        System.out.println("ë‹¤ìŒ êµ¬êµ¬ë‹¨ì„ ë³´ê³  ì •ë‹µì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 
-		for (int i = 0; i <= 10; ++i) {
-			int math_rnd_1 = R2.nextInt(10);
-			int math_rnd_2 = R2.nextInt(10);
+        for (int i = 0; i <= 10; ++i) {
+            int math_rnd_1 = R2.nextInt(10);
+            int math_rnd_2 = R2.nextInt(10);
 
-			System.out.printf(math_rnd_1 + " ¡¿ " + math_rnd_2 + " = ");
-			int math_ans = math_in.nextInt();
+            System.out.printf(math_rnd_1 + " Ã— " + math_rnd_2 + " = ");
+            int math_ans = math_in.nextInt();
 
-			if (math_ans == math_rnd_1 * math_rnd_2) {
-				System.out.println("Á¤´äÀÔ´Ï´Ù.");
-				math_score += 10;
-				System.out.println("³» Á¡¼ö´Â : " + math_score + "Á¡");
-			} else {
-				System.out.println("¿À´äÀÔ´Ï´Ù.");
-				System.out.println("³» Á¡¼ö´Â : " + math_score + "Á¡");
-			}
-		}
+            if (math_ans == math_rnd_1 * math_rnd_2) {
+                System.out.println("ì •ë‹µì…ë‹ˆë‹¤.");
+                math_score += 10;
+                System.out.println("ë‚´ ì ìˆ˜ëŠ” : " + math_score + "ì ");
+            } else {
+                System.out.println("ì˜¤ë‹µì…ë‹ˆë‹¤.");
+                System.out.println("ë‚´ ì ìˆ˜ëŠ” : " + math_score + "ì ");
+            }
+        }
 
-		return math_score;
-	}
+        return math_score;
+    }
 
-	public void makeUp_game() {
-		Scanner makeUp_in = new Scanner(System.in);
+    public void makeUp_game() {
+        Scanner makeUp_in = new Scanner(System.in);
 
-		String[] skin_arr = new String[4];
-		int user_skin = 0;
-		skin_arr[0] = "ºĞÈ«»ö ¹°¾à";
-		skin_arr[1] = "ÆÄ¶õ»ö ¹°¾à";
-		skin_arr[2] = "³ë¶õ»ö ¹°¾à";
-		skin_arr[3] = "ÃÊ·Ï»ö ¹°¾à";
+        // í”¼ë¶€ìƒ‰ ê²°ì •
+        String[] skin_arr = new String[4];
+        int user_skin = 0;
+        skin_arr[0] = "ë¶„í™ìƒ‰ ë¬¼ì•½";
+        skin_arr[1] = "íŒŒë€ìƒ‰ ë¬¼ì•½";
+        skin_arr[2] = "ë…¸ë€ìƒ‰ ë¬¼ì•½";
+        skin_arr[3] = "ì´ˆë¡ìƒ‰ ë¬¼ì•½";
 
-		String[] eyes_arr = new String[4];
-		int user_eyes = 0;
-		eyes_arr[0] = "ºĞÈ«»ö º°°¡·ç";
-		eyes_arr[1] = "ÆÄ¶õ»ö º°°¡·ç";
-		eyes_arr[2] = "³ë¶õ»ö º°°¡·ç";
-		eyes_arr[3] = "ÃÊ·Ï»ö º°°¡·ç";
+        // ëˆˆìƒ‰ ê²°ì •
+        String[] eyes_arr = new String[4];
+        int user_eyes = 0;
+        eyes_arr[0] = "ë¶„í™ìƒ‰ ë³„ê°€ë£¨";
+        eyes_arr[1] = "ì´ˆë¡ìƒ‰ ë³„ê°€ë£¨";
+        eyes_arr[2] = "ë…¸ë€ìƒ‰ ë³„ê°€ë£¨";
 
-		String[] hair_arr = new String[4];
-		int user_hair = 0;
-		hair_arr[0] = "ºĞÈ«»ö ¹°°¨";
-		hair_arr[1] = "ÆÄ¶õ»ö ¹°°¨";
-		hair_arr[2] = "³ë¶õ»ö ¹°°¨";
-		hair_arr[3] = "ÃÊ·Ï»ö ¹°°¨";
+        // ë¨¸ë¦¬ìƒ‰ ê²°ì •
+        String[] hair_arr = new String[4];
+        int user_hair = 0;
+        hair_arr[0] = "ë¶„í™ìƒ‰ ë¬¼ê°";
+        hair_arr[1] = "ì´ˆë¡ìƒ‰ ë¬¼ê°";
+        hair_arr[2] = "ë…¸ë€ìƒ‰ ë¬¼ê°";
 
-		String[] nail_arr = new String[4];
-		int user_nail = 0;
-		nail_arr[0] = "ºĞÈ«»ö ÆÄÃ÷";
-		nail_arr[1] = "ÆÄ¶õ»ö ÆÄÃ÷";
-		nail_arr[2] = "³ë¶õ»ö ÆÄÃ÷";
-		nail_arr[3] = "ÃÊ·Ï»ö ÆÄÃ÷";
+        System.out.println("ê³µì£¼ëŠ” ì„¸ìƒì—ì„œ ì œì¼ ì•„ë¦„ë‹¤ìš´ ì™•ë¹„ë¡œ ë³€ì‹ í•˜ê³ ì í•œë‹¤.");
+        System.out.println("ë¬¼ì•½ì„ ì˜ ì œì¡°í•˜ì—¬ ë³€ì‹  ë§ˆë²•ì— ì„±ê³µí•˜ë„ë¡ í•˜ì!");
 
-		String[] point_arr = new String[4];
-		int user_point = 0;
-		point_arr[0] = "ºĞÈ«»ö º°¹«¸®";
-		point_arr[1] = "ÆÄ¶õ»ö º°¹«¸®";
-		point_arr[2] = "³ë¶õ»ö º°¹«¸®";
-		point_arr[3] = "ÃÊ·Ï»ö º°¹«¸®";
+        while (true) {
+            System.out.println("í”¼ë¶€ìƒ‰ì„ ê²°ì •í•˜ëŠ” ë¬¼ì•½ì„ ê³¨ë¼ì£¼ì„¸ìš”!");
+            System.out.println("1 : " + skin_arr[0]);
+            System.out.println("2 : " + skin_arr[1]);
+            System.out.println("3 : " + skin_arr[2]);
 
-		for (int i = 0; i < 0;) {
-			System.out.println("ÇÇºÎ»öÀ» °áÁ¤ÇÏ´Â ¹°¾àÀ» °ñ¶óÁÖ¼¼¿ä!");
-			System.out.println("1¹ø : " + skin_arr[0]);
-			System.out.println("2¹ø : " + skin_arr[1]);
-			System.out.println("3¹ø : " + skin_arr[2]);
-			System.out.println("4¹ø : " + skin_arr[3]);
+            System.out.print("ë‚´ê°€ ê³ ë¥¸ í”¼ë¶€ìƒ‰ì€? : ");
+            user_skin = makeUp_in.nextInt();
 
-			System.out.printf("³»°¡ °í¸¥ ÇÇºÎ»öÀº? : ");
-			user_skin = makeUp_in.nextInt();
+            if (user_skin == 0) {
+                System.out.println("ë²ˆí˜¸ë¥¼ ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+            } else {
+                System.out.println(skin_arr[user_skin - 1] + "ì„ ê³ ë¥´ì…¨ìŠµë‹ˆë‹¤!");
+                break;
+            }
+        }
 
-			if (user_skin == 0) {
-				System.out.println("¹øÈ£¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä!");
-				continue;
-			} else
-				System.out.println(skin_arr[user_skin - 1] + "À» °í¸£¼Ì½À´Ï´Ù!");
-			break;
-		}
+        while (true) {
+            System.out.println("ëˆˆ ìƒ‰ì„ ê²°ì •í•˜ëŠ” ë¬¼ì•½ì„ ê³¨ë¼ì£¼ì„¸ìš”!");
+            System.out.println("1 : " + eyes_arr[0]);
+            System.out.println("2 : " + eyes_arr[1]);
+            System.out.println("3 : " + eyes_arr[2]);
 
-		for (int i = 0; i < 0;) {
-			System.out.println("´« »öÀ» °áÁ¤ÇÏ´Â ¹°¾àÀ» °ñ¶óÁÖ¼¼¿ä!");
-			System.out.println("1¹ø : " + eyes_arr[0]);
-			System.out.println("2¹ø : " + eyes_arr[1]);
-			System.out.println("3¹ø : " + eyes_arr[2]);
-			System.out.println("4¹ø : " + eyes_arr[3]);
+            System.out.print("ë‚´ê°€ ê³ ë¥¸ ëˆˆ ìƒ‰ì€? : ");
+            user_eyes = makeUp_in.nextInt();
 
-			System.out.printf("³»°¡ °í¸¥ ´« »öÀº? : ");
-			user_eyes = makeUp_in.nextInt();
+            if (user_eyes == 0) {
+                System.out.println("ë²ˆí˜¸ë¥¼ ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+            } else {
+                System.out.println(eyes_arr[user_eyes - 1] + "ë¥¼ ê³ ë¥´ì…¨ìŠµë‹ˆë‹¤!");
+                break;
+            }
+        }
 
-			if (user_skin == 0) {
-				System.out.println("¹øÈ£¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä!");
-				continue;
-			} else
-				System.out.println(eyes_arr[user_eyes - 1] + "¸¦ °í¸£¼Ì½À´Ï´Ù!");
-			break;
-		}
+        while (true) {
+            System.out.println("ë¨¸ë¦¬ìƒ‰ì„ ê²°ì •í•˜ëŠ” ë¬¼ì•½ì„ ê³¨ë¼ì£¼ì„¸ìš”!");
+            System.out.println("1 : " + hair_arr[0]);
+            System.out.println("2 : " + hair_arr[1]);
+            System.out.println("3 : " + hair_arr[2]);
 
-		for (int i = 0; i < 0;) {
-			System.out.println("¸Ó¸®»öÀ» °áÁ¤ÇÏ´Â ¹°¾àÀ» °ñ¶óÁÖ¼¼¿ä!");
-			System.out.println("1¹ø : " + hair_arr[0]);
-			System.out.println("2¹ø : " + hair_arr[1]);
-			System.out.println("3¹ø : " + hair_arr[2]);
-			System.out.println("4¹ø : " + hair_arr[3]);
+            System.out.print("ë‚´ê°€ ê³ ë¥¸ ë¨¸ë¦¬ìƒ‰ì€? : ");
+            user_hair = makeUp_in.nextInt();
 
-			System.out.printf("³»°¡ °í¸¥ ¸Ó¸®»öÀº? : ");
-			user_skin = makeUp_in.nextInt();
+            if (user_hair == 0) {
+                System.out.println("ë²ˆí˜¸ë¥¼ ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+            } else {
+                System.out.println(hair_arr[user_hair - 1] + "ì„ ê³ ë¥´ì…¨ìŠµë‹ˆë‹¤!");
+                break;
+            }
+        }
 
-			if (user_skin == 0) {
-				System.out.println("¹øÈ£¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä!");
-				continue;
-			} else
-				System.out.println(hair_arr[user_hair - 1] + "À» °í¸£¼Ì½À´Ï´Ù!");
-			break;
-		}
+        System.out.println("-------ë³€ì‹  ë¬¼ì•½ ì™„ë£Œ!-------");
+        System.out.println("ê³µì£¼ëŠ” ë³€ì‹  ë¬¼ì•½ì„ ë§ˆì‹œê¸° ì‹œì‘í–ˆë‹¤.");
 
-		for (int i = 0; i < 0;) {
-			System.out.println("³×ÀÏ»öÀ» °áÁ¤ÇÏ´Â ¹°¾àÀ» °ñ¶óÁÖ¼¼¿ä!");
-			System.out.println("1¹ø : " + nail_arr[0]);
-			System.out.println("2¹ø : " + nail_arr[1]);
-			System.out.println("3¹ø : " + nail_arr[2]);
-			System.out.println("4¹ø : " + nail_arr[3]);
-
-			System.out.printf("³»°¡ °í¸¥ ³×ÀÏ»öÀº? : ");
-			user_skin = makeUp_in.nextInt();
-
-			if (user_skin == 0) {
-				System.out.println("¹øÈ£¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä!");
-				continue;
-			} else
-				System.out.println(nail_arr[user_nail - 1] + "¸¦ °í¸£¼Ì½À´Ï´Ù!");
-			break;
-		}
-
-		for (int i = 0; i < 0;) {
-			System.out.println("Æ÷ÀÎÆ®»öÀ» °áÁ¤ÇÏ´Â ¹°¾àÀ» °ñ¶óÁÖ¼¼¿ä!");
-			System.out.println("1¹ø : " + point_arr[0]);
-			System.out.println("2¹ø : " + point_arr[1]);
-			System.out.println("3¹ø : " + point_arr[2]);
-			System.out.println("4¹ø : " + point_arr[3]);
-
-			System.out.printf("³»°¡ °í¸¥ Æ÷ÀÎÆ®»öÀº? : ");
-			user_skin = makeUp_in.nextInt();
-
-			if (user_skin == 0) {
-				System.out.println("¹øÈ£¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä!");
-				continue;
-			} else
-				System.out.println(point_arr[user_point - 1] + "¸¦ °í¸£¼Ì½À´Ï´Ù!");
-			break;
-		}
-	}
+        if (user_skin == 1 && user_eyes == 1 && user_hair == 1) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì•„ì‰½ê²Œë„ ê·¸ëŒ€ë¡œì˜€ë‹¤!");
+            System.out.println("ì•„ë¬´ë˜ë„ ê³µì£¼ë¥¼ ìƒì§•í•˜ëŠ” ë¶„í™ìƒ‰ ë¬¼ì•½ë“¤ë§Œ ë„£ë‹¤ë³´ë‹ˆ ê·¸ëŒ€ë¡œ ìƒíƒœê°€ ìœ ì§€ëœ ê²ƒ ê°™ë‹¤.");
+        }
+        else if (user_skin == 1 && user_eyes == 1 && user_hair == 2) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ê°€ ë§ˆë…€ ìˆ˜ë ¨ìƒìœ¼ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ë¨¸ë¦¬ìƒ‰ì´ ì´ˆë¡ìƒ‰ì´ë¼ ë‹¤ë¥¸ ì‚¬ëŒë“¤ì´ ë¬´ì„œì›Œí•˜ì§€ ì•Šë„ë¡ ì¡°ì‹¬í•´ì•¼ê² ë‹¤.");
+        }
+        else if (user_skin == 1 && user_eyes == 1 && user_hair == 3) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ê°€ í”„ë¡œ ì¼íƒˆëŸ¬ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ê³µì£¼ì˜ íƒˆìƒ‰í•œ ë¨¸ë¦¬ìƒ‰ì€ ë°˜í•­ì‹¬ì„ ë³´ì—¬ì£¼ê¸°ì— ì¶©ë¶„í–ˆë‹¤.");
+        }
+        else if (user_skin == 1 && user_eyes == 2 && user_hair == 1) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ê°€ ëŠ‘ëŒ€ì¸ê°„ìœ¼ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ê³µì£¼ì˜ ì´ˆë¡ìƒ‰ ëˆˆë¹›ì´ ëŠ‘ëŒ€ì¸ê°„ì˜ ìœ ì „ìë¥¼ ë³´ì—¬ì£¼ê¸°ì— ì¶©ë¶„í–ˆë‹¤.");
+        }
+        else if (user_skin == 1 && user_eyes == 2 && user_hair == 2) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ê°€ ë§ˆë…€ì™€ ëŠ‘ëŒ€ì¸ê°„ì˜ í˜¼í˜ˆë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+        }
+        else if (user_skin == 1 && user_eyes == 2 && user_hair == 3) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ê°€ ë§ˆë…€ì™€ ëŠ‘ëŒ€ì¸ê°„ì˜ í˜¼í˜ˆì¸ ì•„ê¸°ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+        }
+        else if (user_skin == 1 && user_eyes == 3 && user_hair == 1) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì„¸ìƒì—ì„œ ê°€ì¥ ì•„ë¦„ë‹¤ìš´ ì§„ì •í•œ ì—¬ì™•ìœ¼ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+        }
+        else if (user_skin == 1 && user_eyes == 3 && user_hair == 2) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ë§ˆë…€ ì•„ê¸°ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+        }
+        else if (user_skin == 1 && user_eyes == 3 && user_hair == 3) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” 5ì‚´ ì•„ê¸°ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+        }
+        else if (user_skin == 2 && user_eyes == 1 && user_hair == 1) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ê°œêµ¬ë¦¬ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+        }
+        else if (user_skin == 2 && user_eyes == 1 && user_hair == 2) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì‚¬ì•…í•œ ëˆˆì„ ê°€ì§„ ê°œêµ¬ë¦¬ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+        }
+        else if (user_skin == 2 && user_eyes == 1 && user_hair == 3) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ë¬´ë¦¬ì—ì„œ ì¼íƒˆí•œ ê°œêµ¬ë¦¬ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+        }
+        else if (user_skin == 2 && user_eyes == 2 && user_hair == 1) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì—¬ì ê°œêµ¬ë¦¬ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+        }
+        else if (user_skin == 2 && user_eyes == 2 && user_hair == 2) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì§„ì •í•œ ë§ˆë…€ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ì´ ì„¸ìƒì„ ë¬¼ì•½ìœ¼ë¡œ íŒŒê´´ì‹œí‚¬ ê²ƒì´ ë¶„ëª…í•´ë³´ì˜€ë‹¤!");
+        }
+        else if (user_skin == 2 && user_eyes == 2 && user_hair == 3) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì§„ì •í•œ ë§ˆë…€ì˜ ì•„ê¸°ë¡œ ë³€ì‹ í–ˆë‹¤!");
+            System.out.println("ì‹¹ìˆ˜ê°€ ì¢‹ì§€ ì•Šë‹¤.");
+        }
+        else if (user_skin == 2 && user_eyes == 3 && user_hair == 1) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì—¬ì ì• ê¸° ê°œêµ¬ë¦¬ë¡œ ë³€ì‹ í–ˆë‹¤!");
+        }
+        else if (user_skin == 2 && user_eyes == 3 && user_hair == 2) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ë§ˆë…€ ì• ê¸° ê°œêµ¬ë¦¬ë¡œ ë³€ì‹ í–ˆë‹¤!");
+        }
+        else if (user_skin == 2 && user_eyes == 3 && user_hair == 3) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ê°“ íƒœì–´ë‚œ ë§ˆë…€ ì• ê¸° ê°œêµ¬ë¦¬ë¡œ ë³€ì‹ í–ˆë‹¤!");
+        }
+        else if (user_skin == 3 && user_eyes == 1 && user_hair == 1) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ìš©ê°í•œ ì „ì‚¬ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ê·¸ í™©ê¸ˆë¹› ë¨¸ë¦¬ì¹´ë½ê³¼ ê°•ë ¬í•œ ëˆˆë¹›ì€ ì‹¸ì›€ì„ ì¤€ë¹„í•˜ëŠ”ë° ì¶©ë¶„í–ˆë‹¤.");
+        }
+        else if (user_skin == 3 && user_eyes == 1 && user_hair == 2) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ìš©ê°í•œ ì „ì‚¬ì˜ ë”¸ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ìƒì†ë°›ì€ ìš©ë§¹í•¨ê³¼ ê·€ì—¬ìš´ ëˆˆë¹›ì€ ëª¨ë‘ë¥¼ ë§¤ë£Œì‹œì¼°ë‹¤.");
+        }
+        else if (user_skin == 3 && user_eyes == 1 && user_hair == 3) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì¹´ë¦¬ìŠ¤ë§ˆ ìˆëŠ” ì—¬ì™•ìœ¼ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ë¨¸ë¦¬ì˜ ì€ë¹›ê³¼ í™©ê¸ˆë¹›ì€ ê·¸ë…€ì˜ ìœ„ì—„ì„ ìƒì§•í–ˆë‹¤.");
+        }
+        else if (user_skin == 3 && user_eyes == 2 && user_hair == 1) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì–´ë‘ ì„ ì§€ë°°í•˜ëŠ” ì—¬ì™•ìœ¼ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ê²€ì€ ë¨¸ë¦¬ì™€ ì°¨ë¶„í•œ ëˆˆë¹›ì€ ê·¸ë…€ì˜ í˜ì„ ìƒì§•í–ˆë‹¤.");
+        }
+        else if (user_skin == 3 && user_eyes == 2 && user_hair == 2) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ê±°ëŒ€í•œ ìš©ìœ¼ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ë¶ˆê½ƒì„ ë¿œëŠ” ë‚ ê°œì™€ í•¨ê»˜, ê³µì£¼ëŠ” ìœ„í˜‘ì ì¸ ì¡´ì¬ê°€ ë˜ì—ˆë‹¤.");
+        }
+        else if (user_skin == 3 && user_eyes == 2 && user_hair == 3) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ë§ˆë…€ì™€ ìš©ì˜ í˜¼í˜ˆë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ë§ˆë²•ê³¼ í˜ì„ ëª¨ë‘ ê°€ì§„ ê³µì£¼, ê·¸ë…€ëŠ” ë¬´ìë¹„í•œ í˜ìœ¼ë¡œ ì„¸ê³„ë¥¼ ì§€ë°°í•  ìˆ˜ ìˆì„ ê²ƒì´ë‹¤.");
+        }
+        else if (user_skin == 3 && user_eyes == 3 && user_hair == 1) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ìš”ì •ìœ¼ë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ê·¸ë…€ì˜ ë¹›ë‚˜ëŠ” ëˆˆê³¼ ì•„ë¦„ë‹¤ìš´ í”¼ë¶€, ê·¸ë¦¬ê³  ë‚ ê°œë¡œ ì¸í•´ ê³µì£¼ëŠ” ì‹ ë¹„ë¡­ê³  ì•„ë¦„ë‹¤ìš´ ì¡´ì¬ê°€ ë˜ì—ˆë‹¤.");
+        }
+        else if (user_skin == 3 && user_eyes == 3 && user_hair == 2) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ìš”ì •ê³¼ ë§ˆë…€ì˜ í˜¼í˜ˆë¡œ ë³€ì‹ í•˜ì˜€ë‹¤!");
+            System.out.println("ë§ˆë²•ê³¼ ì‹ ë¹„ë¡œì›€ì„ ëª¨ë‘ ê°–ì¶˜ ê·¸ë…€ëŠ” ì„¸ê³„ë¥¼ ë†€ë¼ê²Œ í•  ê²ƒì´ë‹¤.");
+        }
+        else if (user_skin == 3 && user_eyes == 3 && user_hair == 3) {
+            System.out.println("í‘!");
+            System.out.println("ê³µì£¼ëŠ” ì‹ ë¹„í•œ ìš”ì •ì˜ ì•„ê¸°ë¡œ ë³€ì‹ í–ˆë‹¤!");
+            System.out.println("ì‹±ê·¸ëŸ¬ìš´ ë¯¸ì†Œì™€ ë§ˆë²•ì ì¸ ëˆˆë™ìë¥¼ ê°€ì§„ ê·¸ë…€, ê·¸ë…€ì˜ íƒ„ìƒì€ ì‹ í™”ë¡œ ë‚¨ì„ ê²ƒì´ë‹¤.");
+        }
+    }
 }
