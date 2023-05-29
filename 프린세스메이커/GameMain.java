@@ -1,58 +1,64 @@
-package í”„ë¦°ì„¸ìŠ¤ë©”ì´ì»¤;
+package princessMaker;
+
 import java.util.Scanner;
 
 public class GameMain {
 
-    static int dayTime = 0; //ë‚ ì§œ ì²´í¬ hour ê¸°ì¤€
+	static int dayTime = 0; // ³¯Â¥ Ã¼Å© hour ±âÁØ
 
-    public void GamePlay() {
-        Scanner in = new Scanner(System.in);
+	public static void plusdayTime(int dayTime) {
+		GameMain.dayTime += dayTime;
+	}
 
-        System.out.println("í”„ë¦°ì„¸ìŠ¤ ë©”ì´ì»¤ ê²Œì„ì„ ì‹œì‘í•©ë‹ˆë‹¤ !");
-        System.out.print("ì‚¬ìš©ìì˜ ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
-        String username = in.next();
+	public void GamePlay() {
+		Scanner in = new Scanner(System.in);
 
-        Character user = new Character(username);
-        //í–‰ë™ í´ë˜ìŠ¤ ê°ì²´ ìƒì„±
-        Behavior behavior = new Behavior(user);
+		System.out.println("ÇÁ¸°¼¼½º ¸ŞÀÌÄ¿ °ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù !");
+		System.out.print("»ç¿ëÀÚÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		String username = in.next();
 
-        System.out.printf("%sê³µì£¼ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤ , ë‹¹ì‹ ì˜ ì„±ì¥ì„ ì‘ì›í•©ë‹ˆë‹¤!\n",user.getName());
+		Character user = new Character(username);
+		// Çàµ¿ Å¬·¡½º °´Ã¼ »ı¼º
+		Behavior behavior = new Behavior(user);
 
-        while(dayTime < 240){
+		System.out.printf("%s°øÁÖ´Ô È¯¿µÇÕ´Ï´Ù , ´ç½ÅÀÇ ¼ºÀåÀ» ÀÀ¿øÇÕ´Ï´Ù!\n", user.getName());
 
-            System.out.println("----------------------------------");
-            System.out.println("ì§„í–‰ì‹œê°„ : " + dayTime / 24 + "ì¼ " + dayTime % 24 + "ì‹œê°„\n");
-            System.out.println("í˜„ì¬ " + user.getName() +" ê³µì£¼ë‹˜ì˜ ëŠ¥ë ¥ì¹˜ì…ë‹ˆë‹¤");
-            System.out.println("ì²´ë ¥ : " + Character.health);
-            System.out.println("ë§¤ë ¥ : " + Character.charm);
-            System.out.println("ì§€ë ¥ : " + Character.intelligence);
-            System.out.println("ë„ë•ì„± : " + Character.morality);
-            System.out.println("----------------------------------");
-            
-            System.out.println("ë‹¤ìŒ ì„ íƒì§€ ì¤‘ í•˜ë‚˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
-            System.out.println("1.ê³µë¶€í•˜ê¸° 2.ë…ì„œí•˜ê¸° 3.ìš´ë™í•˜ê¸° 4.í™”ì¥í•˜ê¸° 5.ì ìê¸° 6.í”„ë¡œê·¸ë¨ ì¢…ë£Œ");
-            System.out.print("í–‰ë™ ì…ë ¥ : ");
-            int num = in.nextInt(); //í–‰ë™ ì…ë ¥ ë°›ìŒ
-    
-            if(num == 1){
-                //ê³µë¶€í•˜ê¸° ë©”ì„œë“œ
-                behavior.study();
-            }else if(num == 2){
-                //ë…ì„œí•˜ê¸° ë©”ì„œë“œ
-                behavior.read();
-            }else if(num == 3){
-                //ìš´ë™í•˜ê¸° ë©”ì„œë“œ
-                behavior.exercise();
-            }else if(num == 4){
-                //í™”ì¥í•˜ê¸° ë©”ì„œë“œ
-                behavior.makeUp();
-            }else if(num == 5){
-                //ì ìê¸° ë©”ì„œë“œ
-            }else if(num == 6){
-                System.out.println("í”„ë¦°ì„¸ìŠ¤ ë©”ì´ì»¤ ê²Œì„ ì¢…ë£Œ");
-                break;
-            }
-        }
-        in.close();
-    }
+		while (dayTime < 240) {
+
+			System.out.println("----------------------------------");
+			System.out.println("ÁøÇà½Ã°£ : " + dayTime / 24 + "ÀÏ " + dayTime % 24 + "½Ã°£\n");
+			System.out.println("ÇöÀç " + user.getName() + " °øÁÖ´ÔÀÇ ´É·ÂÄ¡ÀÔ´Ï´Ù");
+			System.out.println("Ã¼·Â : " + Character.health);
+			System.out.println("¸Å·Â : " + Character.charm);
+			System.out.println("Áö·Â : " + Character.intelligence);
+			System.out.println("µµ´ö¼º : " + Character.morality);
+			System.out.println("----------------------------------");
+
+			System.out.println("´ÙÀ½ ¼±ÅÃÁö Áß ÇÏ³ª¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+			System.out.println("1.°øºÎÇÏ±â 2.µ¶¼­ÇÏ±â 3.¿îµ¿ÇÏ±â 4.È­ÀåÇÏ±â 5.ÀáÀÚ±â 6.ÇÁ·Î±×·¥ Á¾·á");
+			System.out.print("Çàµ¿ ÀÔ·Â : ");
+			int num = in.nextInt(); // Çàµ¿ ÀÔ·Â ¹ŞÀ½
+
+			if (num == 1) {
+				// °øºÎÇÏ±â ¸Ş¼­µå
+				behavior.study();
+			} else if (num == 2) {
+				// µ¶¼­ÇÏ±â ¸Ş¼­µå
+				behavior.read();
+			} else if (num == 3) {
+				// ¿îµ¿ÇÏ±â ¸Ş¼­µå
+				behavior.exercise();
+			} else if (num == 4) {
+				// È­ÀåÇÏ±â ¸Ş¼­µå
+				behavior.makeUp();
+			} else if (num == 5) {
+				// ÀáÀÚ±â ¸Ş¼­µå
+			} else if (num == 6) {
+				System.out.println("ÇÁ¸°¼¼½º ¸ŞÀÌÄ¿ °ÔÀÓ Á¾·á");
+				break;
+			}
+		}
+		in.close();
+	}
+
 }

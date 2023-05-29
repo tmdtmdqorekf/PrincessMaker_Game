@@ -1,286 +1,323 @@
-package í”„ë¦°ì„¸ìŠ¤ë©”ì´ì»¤;
+package princessMaker;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Behavior {
-    String name;
+	String name;
 
-    Behavior(Character user){
-        this.name = user.name; //ìƒì„±ìì—ì„œ ì´ë¦„ ë°›ì•„ì˜´
-    }
-    // 1. ê³µë¶€í•˜ê¸°
-    public void study() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("ê³µë¶€í•˜ê¸°ë¥¼ ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤");
-        System.out.println("ë‹¤ìŒ ì„ íƒì§€ ì¤‘ í•˜ë‚˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
-        System.out.println("1.ìœ¤ë¦¬ ìˆ˜ì—… 2.ë°œí‘œ ìˆ˜ì—… 3.ê¸€ì“°ê¸° ìˆ˜ì—… 4.ìˆ˜í•™ ìˆ˜ì—…");
-        System.out.print("í–‰ë™ ì…ë ¥ : ");
-        int num = in.nextInt(); //í–‰ë™ ì…ë ¥ ë°›ìŒ
-        
-        if(num == 1){
-            ethics();
-        }else if(num == 2){
-            presentation();
-        }else if(num == 3){
-            writing();
-        }else if(num == 4){
-            math();
-        }
-    }
+	Behavior(Character user) {
+		this.name = user.name; // »ı¼ºÀÚ¿¡¼­ ÀÌ¸§ ¹Ş¾Æ¿È
+	}
 
-    // 1-1. ìœ¤ë¦¬ ìˆ˜ì—…
-    public void ethics() {
-        System.out.println("-- ìœ¤ë¦¬ ìˆ˜ì—… ì‹œê°„ì…ë‹ˆë‹¤ --");
-        System.out.println("ë¡œì˜ë¦° êµìˆ˜: ê³µì£¼ë‹˜ ì˜¤ëŠ˜ì€ ì“°ë ˆê¸° ë°”ë‹¥ì— ì•ˆë²„ë¦¬ì…¨ì£ ?");
-        System.out.println("ìœ¤ë¦¬ ë¯¸ë‹ˆê²Œì„ íƒ€ì„ !");
+	// 1. °øºÎÇÏ±â
+	public void study() {
+		Scanner in = new Scanner(System.in);
+		System.out.println("°øºÎÇÏ±â¸¦ ¼±ÅÃÇÏ¼Ì½À´Ï´Ù");
+		System.out.println("´ÙÀ½ ¼±ÅÃÁö Áß ÇÏ³ª¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+		System.out.println("1.À±¸® ¼ö¾÷ 2.¹ßÇ¥ ¼ö¾÷ 3.±Û¾²±â ¼ö¾÷ 4.¼öÇĞ ¼ö¾÷");
+		System.out.print("Çàµ¿ ÀÔ·Â : ");
+		int num = in.nextInt(); // Çàµ¿ ÀÔ·Â ¹ŞÀ½
 
-        // ìœ¤ë¦¬ MiniGame class
-        MiniGame ethicsGame = new MiniGame();
-        ethicsGame.ethics_game();
-    }
+		if (num == 1) {
+			ethics();
+		} else if (num == 2) {
+			presentation();
+		} else if (num == 3) {
+			writing();
+		} else if (num == 4) {
+			math();
+		}
+	}
 
-    // 1-2. ë°œí‘œ ìˆ˜ì—…
-    public void presentation() {
-        Scanner in = new Scanner(System.in);
+	// 1-1. À±¸® ¼ö¾÷
+	public void ethics() {
+		System.out.println("-- À±¸® ¼ö¾÷ ½Ã°£ÀÔ´Ï´Ù --");
+		System.out.println("·ÎÀß¸° ±³¼ö: °øÁÖ´Ô ¿À´ÃÀº ¾²·¹±â ¹Ù´Ú¿¡ ¾È¹ö¸®¼ÌÁÒ?");
+		System.out.println("À±¸® ¹Ì´Ï°ÔÀÓ Å¸ÀÓ !");
 
-        System.out.println("-- ë°œí‘œ ìˆ˜ì—… ì‹œê°„ --");
-        System.out.println("ìŠ¤íƒ  ë¦¬ êµìˆ˜: ë°œí‘œ ìˆ˜ì—…ì„ í•˜ë„ë¡ í•˜ê² ìˆ˜ë‹¤. í í ");
-        System.out.println("ìŠ¤íƒ  ë¦¬ êµìˆ˜: " + name + " ê³µì£¼, í•œë²ˆ ë§í•´ë³´ì‹œê²Œë‚˜?");
-        System.out.println();
+		// À±¸® MiniGame class
+		MiniGame ethicsGame = new MiniGame();
+		int ethic_score = ethicsGame.ethics_game();
 
-        String user_presentation = in.next();
-        System.out.println(name + " ê³µì£¼: " + user_presentation);
+		if (ethic_score == 3) {
+			Character.plusMorality(3);
+		} else if (ethic_score == 2) {
+			Character.plusMorality(2);
+		} else if (ethic_score == 1) {
+			Character.plusMorality(1);
+		} else {
+			Character.plusMorality(0);
+		}
 
-        System.out.println("ë°œí‘œ ìˆ˜ì—…ì€ ì•„ì£¼ ì¢‹ì€ ê·€ê°ì´ ë˜ì—ˆë‹¤.");
+		GameMain.plusdayTime(4);
+	}
 
-        Character.plusIntelligence(5);
-    }
+	// 1-2. ¹ßÇ¥ ¼ö¾÷
+	public void presentation() {
+		Scanner in = new Scanner(System.in);
 
-    // 1-3. ê¸€ì“°ê¸° ìˆ˜ì—…
-    public void writing() {
-        System.out.println("-- ê¸€ì“°ê¸° ìˆ˜ì—… ì‹œê°„ --");
-        System.out.println("í¼ì‹œí”½ êµìˆ˜: ê³µì£¼ë‹˜ ë°›ì•„ì“°ê¸° í•˜ì‹¤ ì¤€ë¹„ ë˜ì…¨ë‚˜ìš”?");
+		System.out.println("-- ¹ßÇ¥ ¼ö¾÷ ½Ã°£ --");
+		System.out.println("½ºÅÄ ¸® ±³¼ö: ¹ßÇ¥ ¼ö¾÷À» ÇÏµµ·Ï ÇÏ°Ú¼ö´Ù. ÈìÈì");
+		System.out.println("½ºÅÄ ¸® ±³¼ö: " + name + " °øÁÖ, ÇÑ¹ø ¸»ÇØº¸½Ã°Ô³ª?");
+		System.out.println();
 
-        MiniGame writeGame = new MiniGame();
-        writeGame.writing_game();
-    }
+		String user_presentation = in.next();
+		System.out.println(name + " °øÁÖ: " + user_presentation);
 
-    // 1-4. ìˆ˜í•™ ìˆ˜ì—…
-    public void math() {
+		System.out.println("¹ßÇ¥ ¼ö¾÷Àº ¾ÆÁÖ ÁÁÀº ±Í°¨ÀÌ µÇ¾ú´Ù.");
 
-        System.out.println("-- ìˆ˜í•™ ìˆ˜ì—… ì‹œê°„ --");
-        System.out.println("ì œë‹ˆí¼ êµìˆ˜: " + name + " ê³µì£¼ë‹˜ ê³µë¶€í•´ì˜¤ì…¨ì£ ? ì´ì œ ë¬¸ì œë¥¼ í’€ì–´ë´…ì‹œë‹¤.");
+		Character.plusIntelligence(3);
+		GameMain.plusdayTime(4);
+	}
 
-        System.out.println("ìˆ˜í•™ ë¯¸ë‹ˆê²Œì„ íƒ€ì„ !");
+	// 1-3. ±Û¾²±â ¼ö¾÷
+	public void writing() {
+		System.out.println("-- ±Û¾²±â ¼ö¾÷ ½Ã°£ --");
+		System.out.println("ÆÛ½ÃÇÈ ±³¼ö: °øÁÖ´Ô ¹Ş¾Æ¾²±â ÇÏ½Ç ÁØºñ µÇ¼Ì³ª¿ä?");
 
-        MiniGame mathGame = new MiniGame();
-        mathGame.math_game();
-        // ìˆ˜í•™ MiniGame class
+		MiniGame writeGame = new MiniGame();
+		int writing_score = writeGame.writing_game();
 
-    }
+		if (writing_score == 3) {
+			Character.plusIntelligence(3);
+		} else if (writing_score == 2) {
+			Character.plusIntelligence(2);
+		} else if (writing_score == 1) {
+			Character.plusIntelligence(1);
+		} else {
+			Character.plusIntelligence(0);
+		}
 
-    // 2. ë…ì„œí•˜ê¸°
-    public void read() {
-        Scanner in = new Scanner(System.in);
+		GameMain.plusdayTime(4);
+	}
 
-        System.out.println("ê³µì£¼ëŠ” ì±…ë°©ì— ë“¤ì–´ì™”ë‹¤.");
-        System.out.print("ë¬´ìŠ¨ ì±…ì„ ì½ìœ¼ì‹œê² ìŠµë‹ˆê¹Œ? 1.ë™ë¬¼ë†ì¥ 2.ìì‹ ìˆê²Œ ë§í•˜ê¸° 3.ë§ˆë” í…Œë ˆì‚¬ ìœ„ì¸ì „");
-        int book = in.nextInt();
+	// 1-4. ¼öÇĞ ¼ö¾÷
+	public void math() {
 
-        // 2-1. ë™ë¬¼ë†ì¥
-        if (book == 1) {
-            System.out.println(name + " ê³µì£¼ëŠ” ë™ë¬¼ë†ì¥ ì±…ì„ êº¼ë‚´ë“¤ì—ˆë‹¤.");
-            System.out.println();
+		System.out.println("-- ¼öÇĞ ¼ö¾÷ ½Ã°£ --");
+		System.out.println("Á¦´ÏÆÛ ±³¼ö: " + name + " °øÁÖ´Ô °øºÎÇØ¿À¼ÌÁÒ? ÀÌÁ¦ ¹®Á¦¸¦ Ç®¾îº¾½Ã´Ù.");
 
-            System.out.println("ã€Šë™ë¬¼ ë†ì¥ã€‹ì€ ë™ë¬¼ë“¤ì´ ìì‹ ë“¤ì„ ì–µì••í•˜ê³  ì°©ì·¨í•˜ë˜ ì¸ê°„ì„ ë‚´ì«“ê³  ìœ í† í”¼ì•„ë¥¼ ê¿ˆê¾¸ë©° ìê¸°ë“¤ë§Œì˜ ë†ì¥ì„ ë§Œë“¤ì–´ì„œ ìƒí™œí•œë‹¤ëŠ” ì´ì•¼ê¸°ë‹¤. " +
-                    "ë™ë¬¼ë“¤ì€ ì¶”ìœ„ì™€ êµ¶ì£¼ë¦¼ ì†ì—ì„œ í˜ë“¤ê²Œ ì¼í•˜ëŠ”ë° ê·¸ ëŒ€ê°€ëŠ” ì¼ë„ í•˜ì§€ ì•ŠëŠ” ì¸ê°„ì´ ë‹¤ ë¹¼ì•—ì•„ê°„ë‹¤ê³  ìƒê°í•˜ê³  ë°˜ë€ì„ ì¼ìœ¼í‚¨ë‹¤.");
-            System.out.println();
+		System.out.println("¼öÇĞ ¹Ì´Ï°ÔÀÓ Å¸ÀÓ !");
 
-            System.out.println(name + " ê³µì£¼: (í .. ë™ë¬¼ë“¤ì˜ ë°˜ë€ì´ë¼.. ì•½ê°„ ì†Œë¦„ ë¼ì¹˜ëŠ”ê±¸)");
+		MiniGame mathGame = new MiniGame();
+		int math_score = mathGame.math_game();
 
-            System.out.println("ì±…ì„ í¼ì³ í•œì¤„ í•œì¤„ ì§‘ì¤‘í•˜ë©´ì„œ ì½ê¸° ì‹œì‘í–ˆë‹¤.");
-            System.out.println();
+		if (math_score >= 90) {
+			System.out.println("Á¦´ÏÆÛ ±³¼ö: ¿ª½Ã °øÁÖ´ÔÀÌ¼¼¿ä! ÀÌ·¯´Ù°¡ ÀúÃ³·³ ±³¼öµÇ½Ã°Ú¾î¿ä. È£È£");
+			Character.plusIntelligence(4);
+		} else if (math_score >= 70) {
+			System.out.println("Á¦´ÏÆÛ ±³¼ö: ±¦Âú¾Æ¿ä °øÁÖ´Ô. ½Ç¼öÁ¤µµ¾ß ´©±¸³ª ÇÏ´Â°Å ¾Æ´Ï°Ú¾î¿ä?");
+			Character.plusIntelligence(3);
+		} else if (math_score >= 50) {
+			System.out.println("Á¦´ÏÆÛ ±³¼ö: ...");
+			System.out.println("Á¦´ÏÆÛ ±³¼ö: ¼öÇĞ ¼ö¾÷ ÀÚÁÖ µéÀ¸·¯ ¿À¼¼¿ä °øÁÖ´Ô");
+			Character.plusIntelligence(2);
+		} else {
+			System.out.println("Á¦´ÏÆÛ ±³¼ö: ...");
+			System.out.println("Á¦´ÏÆÛ ±³¼ö: ´ÙÀ½¿£ ²À °øºÎÇØ¿À¼¼¿ä °øÁÖ´Ô!!");
+			Character.plusIntelligence(1);
+		}
 
-            System.out.println("ëª¨ë“  ë™ë¬¼ì€ í‰ë“±í•˜ë‹¤. ê·¸ëŸ¬ë‚˜ ì–´ë–¤ ë™ë¬¼ì€ ë‹¤ë¥¸ ë™ë¬¼ë“¤ë³´ë‹¤ ë”ìš± í‰ë“±í•˜ë‹¤.");
-            System.out.println("ë°”ê¹¥ì— ìˆë˜ ë™ë¬¼ë“¤ì€ ë¼ì§€ì˜ ì–¼êµ´ì„ ë³´ë‹¤ê°€ ì¸ê°„ì˜ ì–¼êµ´ì„ ë³´ì•˜ë‹¤. ì¸ê°„ì˜ ì–¼êµ´ì—ì„œ ë‹¤ì‹œ ë¼ì§€ì˜ ì–¼êµ´ë¡œ, " +
-                    "ê·¸ë¦¬ê³  ë˜ ë‹¤ì‹œ ë¼ì§€ì˜ ì–¼êµ´ì—ì„œ ì¸ê°„ì˜ ì–¼êµ´ë¡œ ëˆˆê¸¸ì„ ì˜®ê²¼ë‹¤. ê·¸ëŸ¬ë‚˜ ëˆ„ê°€ ë¼ì§€ê³  ëˆ„ê°€ ì¸ê°„ì¸ì§€ ë™ë¬¼ë“¤ì€ ì „í˜€ ë¶„ê°„í•  ìˆ˜ê°€ ì—†ì—ˆë‹¤.");
-            System.out.println();
-        }
+		Character.plusCharm(1);
+		GameMain.plusdayTime(4);
+	}
 
-        // 2-2. ìì‹ ìˆê²Œ ë§í•˜ê¸°
-        else if (book == 2) {
-            System.out.println(name + " ê³µì£¼ëŠ” ìì‹ ìˆê²Œ ë§í•˜ê¸° ì±…ì„ êº¼ë‚´ë“¤ì—ˆë‹¤.");
-            System.out.println();
+	// 2. µ¶¼­ÇÏ±â
+	public void read() {
+		Scanner in = new Scanner(System.in);
 
-            System.out.println("ì´ë¡ ê³¼ ì‹¤ì œ ê²½í—˜ì´ ì¡°í™”ë¡œìš´ ì±…ìœ¼ë¡œ í˜¼ìì„œ í•  ìˆ˜ ìˆë„ë¡ ë„ì™€ì£¼ëŠ” ì§€ì¹¨ì„œì…ë‹ˆë‹¤. " +
-                    "ë§í•˜ê¸°ë¥¼ ì–´ë–»ê²Œ í›ˆë ¨í• ì§€ ìì„¸íˆ ì†Œê°œí•˜ì—¬ í˜¼ìì„œë„ ì¶©ë¶„íˆ ì—°ìŠµí•  ìˆ˜ ìˆìŠµë‹ˆë‹¤. " +
-                    "ì‹¤í—˜ì„ í†µí•´ ê²€ì¦ë°›ì€ ë‚´ìš©ìœ¼ë¡œ ì–´ë¦°ì´ë¶€í„° ì²­ì†Œë…„ê¹Œì§€ ëª¨ë‘ í™œìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤. " +
-                    "ë˜í•œ, ê¸°ë³¸ ê³¨ê²©ì€ ê°™ê¸° ë•Œë¬¸ì— ì–´ë¦°ì´, ì²­ì†Œë…„ ë“± ëˆ„êµ¬ë‚˜ í™œìš©í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
-            System.out.println();
+		System.out.println("°øÁÖ´Â Ã¥¹æ¿¡ µé¾î¿Ô´Ù.");
+		System.out.print("¹«½¼ Ã¥À» ÀĞÀ¸½Ã°Ú½À´Ï±î? 1.µ¿¹°³óÀå 2.ÀÚ½ÅÀÖ°Ô ¸»ÇÏ±â 3.¸¶´õ Å×·¹»ç À§ÀÎÀü");
+		int book = in.nextInt();
 
-            System.out.println("ì±…ì„ í¼ì³ í•œì¤„ í•œì¤„ ì§‘ì¤‘í•˜ë©´ì„œ ì½ê¸° ì‹œì‘í–ˆë‹¤.");
-            System.out.println();
+		// 2-1. µ¿¹°³óÀå
+		if (book == 1) {
+			System.out.println(name + " °øÁÖ´Â µ¿¹°³óÀå Ã¥À» ²¨³»µé¾ú´Ù.");
+			System.out.println();
 
-            System.out.println("ë“£ëŠ” ì‚¬ëŒì´ ëˆ„êµ¬ëƒì— ë”°ë¼ì„œ í™”ìˆ ë²•ì€ ë‹¬ë¼ì§€ê¸° ë§ˆë ¨ì¸ë°ìš”, " +
-                    "ë“£ëŠ” ì‚¬ëŒì„ ë¨¼ì € íŒŒì•…í•´ë‘ì–´ì•¼ ë§í•  ë•Œ ë” ìì‹ ê° ìˆê²Œ ë§í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
-            System.out.println("ìì‹ ìˆê²Œ ë§í•˜ê¸°ì—ì„œ ì¡°ì‹¬í•´ì•¼ í• ê²ƒì€ ë‚´ê°€ í•˜ê¸° ì‰½ê²Œ í•˜ëŠ” ê²ƒì´ ì¤‘ìš”í•œ ê²ƒì´ ì•„ë‹ˆë¼, ë“£ëŠ” ì‚¬ëŒì´ " +
-                    "ì•Œì•„ë“£ê¸° ì‰½ê²Œ ë§í•´ì•¼ í•œë‹¤ê²ƒì…ë‹ˆë‹¤. ë§í•˜ëŠ” ì‚¬ëŒì´ ë§í•˜ê¸° ì‰½ë‹¤ë©´ ë“£ëŠ” ì‚¬ëŒì´ ì´í•´í•˜ê¸° ì‰¬ìš¸ " +
-                    "í™•ë¥ ì´ ë†’ê² ì£ ? í•˜ì§€ë§Œ, ë„ˆë¬´ ê°„ë‹¨ëª…ë£Œí•˜ê²Œ ë§í•˜ëŠ” ê²ƒì€ ë“£ëŠ” ì‚¬ëŒì—ê²Œ ì„¤ëª…ë¶€ì¡±ìœ¼ë¡œ " +
-                    "ë‹¤ê°€ê°ˆ í™•ë¥ ë„ ë†’ì•„ì§ˆ ìˆ˜ ìˆë‹µë‹ˆë‹¤. ë§í•  ë•Œì—ëŠ” í•µì‹¬ê³¼ ì ì ˆí•œ ì„¤ëª…ìœ¼ë¡œ ì´í•´ë¥¼ ì–»ì–´ì•¼í•œë‹µë‹ˆë‹¤.");
-            System.out.println();
-        }
+			System.out.println("¡¶µ¿¹° ³óÀå¡·Àº µ¿¹°µéÀÌ ÀÚ½ÅµéÀ» ¾ï¾ĞÇÏ°í ÂøÃëÇÏ´ø ÀÎ°£À» ³»ÂÑ°í À¯ÅäÇÇ¾Æ¸¦ ²Ş²Ù¸ç ÀÚ±âµé¸¸ÀÇ ³óÀåÀ» ¸¸µé¾î¼­ »ıÈ°ÇÑ´Ù´Â ÀÌ¾ß±â´Ù. "
+					+ "µ¿¹°µéÀº ÃßÀ§¿Í ±¾ÁÖ¸² ¼Ó¿¡¼­ Èûµé°Ô ÀÏÇÏ´Âµ¥ ±× ´ë°¡´Â ÀÏµµ ÇÏÁö ¾Ê´Â ÀÎ°£ÀÌ ´Ù »©¾Ñ¾Æ°£´Ù°í »ı°¢ÇÏ°í ¹İ¶õÀ» ÀÏÀ¸Å²´Ù.");
+			System.out.println();
 
-        else if (book == 3) {
-            System.out.println(name + " ê³µì£¼ëŠ” ë§ˆë” í…Œë ˆì‚¬ ìœ„ì¸ì „ ì±…ì„ êº¼ë‚´ë“¤ì—ˆë‹¤.");
-            System.out.println();
+			System.out.println(name + " °øÁÖ: (Èì.. µ¿¹°µéÀÇ ¹İ¶õÀÌ¶ó.. ¾à°£ ¼Ò¸§ ³¢Ä¡´Â°É)");
 
-            System.out.println(name + " ê³µì£¼: (ë‚´ê°€ ì •ë§ ì¡´ê²½í•˜ëŠ” ë¶„ì´ì•¼.. ì—¬ëŸ¬ ë²ˆ ì½ì–´ì•¼ê² ë‹¤.)");
-            System.out.println();
+			System.out.println("Ã¥À» ÆîÃÄ ÇÑÁÙ ÇÑÁÙ ÁıÁßÇÏ¸é¼­ ÀĞ±â ½ÃÀÛÇß´Ù.");
+			System.out.println();
 
-            System.out.println("ì±…ì„ í¼ì³ í•œì¤„ í•œì¤„ ì§‘ì¤‘í•˜ë©´ì„œ ì½ê¸° ì‹œì‘í–ˆë‹¤.");
-            System.out.println();
+			System.out.println("¸ğµç µ¿¹°Àº ÆòµîÇÏ´Ù. ±×·¯³ª ¾î¶² µ¿¹°Àº ´Ù¸¥ µ¿¹°µéº¸´Ù ´õ¿í ÆòµîÇÏ´Ù.");
+			System.out.println("¹Ù±ù¿¡ ÀÖ´ø µ¿¹°µéÀº µÅÁöÀÇ ¾ó±¼À» º¸´Ù°¡ ÀÎ°£ÀÇ ¾ó±¼À» º¸¾Ò´Ù. ÀÎ°£ÀÇ ¾ó±¼¿¡¼­ ´Ù½Ã µÅÁöÀÇ ¾ó±¼·Î, "
+					+ "±×¸®°í ¶Ç ´Ù½Ã µÅÁöÀÇ ¾ó±¼¿¡¼­ ÀÎ°£ÀÇ ¾ó±¼·Î ´«±æÀ» ¿Å°å´Ù. ±×·¯³ª ´©°¡ µÅÁö°í ´©°¡ ÀÎ°£ÀÎÁö µ¿¹°µéÀº ÀüÇô ºĞ°£ÇÒ ¼ö°¡ ¾ø¾ú´Ù.");
+			System.out.println();
+		}
 
-            System.out.println("ì˜¤ëŠ˜ë‚  ê°€ì¥ í° ë³‘ì€ ê²°í•µì´ë‚˜ ë‚˜ë³‘ì´ ì•„ë‹ˆë¼ ë‹¤ë¥¸ ì‚¬ëŒìœ¼ë¡œë¶€í„° ì‚¬ë‘ë°›ì§€ ëª»í•˜ê³  ë‚¨ì´ í•„ìš”ë¡œ í•˜ì§€ë„ ì•Šìœ¼ë©° " +
-                    "ë‚¨ìœ¼ë¡œë¶€í„° ë³´ì‚´í•Œì„ ë°›ì§€ ëª»í•˜ëŠ” ê²ƒì…ë‹ˆë‹¤.");
-            System.out.println("ê·¸ëŒ€ê°€ íŒë‹¨ê³¼ í–‰ë™ì— í˜¼ë€ì„ ëŠë‚„ ë•Œì—ëŠ” ê·¸ê²ƒì´ ê°€ì¥ ê°€ë‚œí•œ ì‚¬ëŒì˜ ì…ì¥ì— ì„œ ìˆëŠ”ê°€ë¥¼ ë¨¼ì € ìƒê°í•˜ë¼.");
-            System.out.println();
-        }
+		// 2-2. ÀÚ½ÅÀÖ°Ô ¸»ÇÏ±â
+		else if (book == 2) {
+			System.out.println(name + " °øÁÖ´Â ÀÚ½ÅÀÖ°Ô ¸»ÇÏ±â Ã¥À» ²¨³»µé¾ú´Ù.");
+			System.out.println();
 
-        System.out.println("-- ì±…ì„ ëª¨ë‘ ì½ì—ˆìŠµë‹ˆë‹¤. --");
-        System.out.println(name + " ê³µì£¼: (ì—­ì‹œ ì±…ì„ ì½ìœ¼ë©´ ë¨¸ë¦¬ê°€ ë˜‘ë˜‘í•´ì§€ëŠ” ê¸°ë¶„ì´ì•¼! ì´ ëŠë‚Œì„ ê¸°ì–µí•˜ë„ë¡ ë…í›„ê°ì„ ì“¸ê¹Œ?)");
-        System.out.print("ë…í›„ê°ì„ ì“°ì‹œê² ìŠµë‹ˆê¹Œ? yes/no : ");
-        String write_essay = in.next();
+			System.out.println("ÀÌ·Ğ°ú ½ÇÁ¦ °æÇèÀÌ Á¶È­·Î¿î Ã¥À¸·Î È¥ÀÚ¼­ ÇÒ ¼ö ÀÖµµ·Ï µµ¿ÍÁÖ´Â ÁöÄ§¼­ÀÔ´Ï´Ù. "
+					+ "¸»ÇÏ±â¸¦ ¾î¶»°Ô ÈÆ·ÃÇÒÁö ÀÚ¼¼È÷ ¼Ò°³ÇÏ¿© È¥ÀÚ¼­µµ ÃæºĞÈ÷ ¿¬½ÀÇÒ ¼ö ÀÖ½À´Ï´Ù. " + "½ÇÇèÀ» ÅëÇØ °ËÁõ¹ŞÀº ³»¿ëÀ¸·Î ¾î¸°ÀÌºÎÅÍ Ã»¼Ò³â±îÁö ¸ğµÎ È°¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù. "
+					+ "¶ÇÇÑ, ±âº» °ñ°İÀº °°±â ¶§¹®¿¡ ¾î¸°ÀÌ, Ã»¼Ò³â µî ´©±¸³ª È°¿ëÇÒ ¼ö ÀÖ½À´Ï´Ù.");
+			System.out.println();
 
-        // ë…í›„ê°
-        if (write_essay.equals("yes")) { // Objects ê°ì²´ëª… ìˆ˜ì •í•˜ê¸°
-            System.out.println(name + " ê³µì£¼: (ì—­ì‹œ ì´ ëŠë‚Œì„ ê¸°ì–µí•˜ë„ë¡ ë…í›„ê°ì„ ì“°ëŠ”ê²Œ ë‚«ê² ì–´!)");
-            System.out.println();
+			System.out.println("Ã¥À» ÆîÃÄ ÇÑÁÙ ÇÑÁÙ ÁıÁßÇÏ¸é¼­ ÀĞ±â ½ÃÀÛÇß´Ù.");
+			System.out.println();
 
-            System.out.print("ë…í›„ê° ì‘ì„±: ");
-            in.nextLine();
-            StringBuilder book_essay = new StringBuilder();
-            String line;
-            while (!(line = in.nextLine()).isEmpty()) {
-                book_essay.append(line);
-                book_essay.append("\n");
-            }
-            System.out.println();
-            System.out.println(book_essay);
+			System.out.println("µè´Â »ç¶÷ÀÌ ´©±¸³Ä¿¡ µû¶ó¼­ È­¼ú¹ıÀº ´Ş¶óÁö±â ¸¶·ÃÀÎµ¥¿ä, " + "µè´Â »ç¶÷À» ¸ÕÀú ÆÄ¾ÇÇØµÎ¾î¾ß ¸»ÇÒ ¶§ ´õ ÀÚ½Å°¨ ÀÖ°Ô ¸»ÇÒ ¼ö ÀÖ½À´Ï´Ù.");
+			System.out.println("ÀÚ½ÅÀÖ°Ô ¸»ÇÏ±â¿¡¼­ Á¶½ÉÇØ¾ß ÇÒ°ÍÀº ³»°¡ ÇÏ±â ½±°Ô ÇÏ´Â °ÍÀÌ Áß¿äÇÑ °ÍÀÌ ¾Æ´Ï¶ó, µè´Â »ç¶÷ÀÌ "
+					+ "¾Ë¾Æµè±â ½±°Ô ¸»ÇØ¾ß ÇÑ´Ù°ÍÀÔ´Ï´Ù. ¸»ÇÏ´Â »ç¶÷ÀÌ ¸»ÇÏ±â ½±´Ù¸é µè´Â »ç¶÷ÀÌ ÀÌÇØÇÏ±â ½¬¿ï "
+					+ "È®·üÀÌ ³ô°ÚÁÒ? ÇÏÁö¸¸, ³Ê¹« °£´Ü¸í·áÇÏ°Ô ¸»ÇÏ´Â °ÍÀº µè´Â »ç¶÷¿¡°Ô ¼³¸íºÎÁ·À¸·Î "
+					+ "´Ù°¡°¥ È®·üµµ ³ô¾ÆÁú ¼ö ÀÖ´ä´Ï´Ù. ¸»ÇÒ ¶§¿¡´Â ÇÙ½É°ú ÀûÀıÇÑ ¼³¸íÀ¸·Î ÀÌÇØ¸¦ ¾ò¾î¾ßÇÑ´ä´Ï´Ù.");
+			System.out.println();
+		}
 
+		else if (book == 3) {
+			System.out.println(name + " °øÁÖ´Â ¸¶´õ Å×·¹»ç À§ÀÎÀü Ã¥À» ²¨³»µé¾ú´Ù.");
+			System.out.println();
 
-            Character.plusIntelligence(5);
-        }
-        else {
-            System.out.println(name + " ê³µì£¼: (ìŒ.. ê·¸ëƒ¥ ë‹¤ìŒì— ì“°ì.)");
+			System.out.println(name + " °øÁÖ: (³»°¡ Á¤¸» Á¸°æÇÏ´Â ºĞÀÌ¾ß.. ¿©·¯ ¹ø ÀĞ¾î¾ß°Ú´Ù.)");
+			System.out.println();
 
-            Character.plusIntelligence(3);
-        }
-    }
+			System.out.println("Ã¥À» ÆîÃÄ ÇÑÁÙ ÇÑÁÙ ÁıÁßÇÏ¸é¼­ ÀĞ±â ½ÃÀÛÇß´Ù.");
+			System.out.println();
 
-    // 3. ìš´ë™í•˜ê¸°
-    public void exercise() {
-        Scanner in = new Scanner(System.in);
+			System.out
+					.println("¿À´Ã³¯ °¡Àå Å« º´Àº °áÇÙÀÌ³ª ³ªº´ÀÌ ¾Æ´Ï¶ó ´Ù¸¥ »ç¶÷À¸·ÎºÎÅÍ »ç¶û¹ŞÁö ¸øÇÏ°í ³²ÀÌ ÇÊ¿ä·Î ÇÏÁöµµ ¾ÊÀ¸¸ç " + "³²À¸·ÎºÎÅÍ º¸»ìÇËÀ» ¹ŞÁö ¸øÇÏ´Â °ÍÀÔ´Ï´Ù.");
+			System.out.println("±×´ë°¡ ÆÇ´Ü°ú Çàµ¿¿¡ È¥¶õÀ» ´À³¥ ¶§¿¡´Â ±×°ÍÀÌ °¡Àå °¡³­ÇÑ »ç¶÷ÀÇ ÀÔÀå¿¡ ¼­ ÀÖ´Â°¡¸¦ ¸ÕÀú »ı°¢ÇÏ¶ó.");
+			System.out.println();
+		}
 
-        System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ê³µì£¼ë‹˜ ë‹¨ë°±ì§ˆ ì±™ê²¨ ë“œì…¨ì£ ? ì•„ë‹ˆë€ ë§ì€ í•˜ì§€ ë§ì•„ì£¼ì„¸ìš”.");
-        System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ì˜¤ëŠ˜ì€ ì–´ëŠ ë¶€ìœ„ë¥¼ ìš´ë™ í•˜ì‹¤ê±´ê°€ìš”?");
-        System.out.println();
+		System.out.println("-- Ã¥À» ¸ğµÎ ÀĞ¾ú½À´Ï´Ù. --");
+		System.out.println(name + " °øÁÖ: (¿ª½Ã Ã¥À» ÀĞÀ¸¸é ¸Ó¸®°¡ ¶È¶ÈÇØÁö´Â ±âºĞÀÌ¾ß! ÀÌ ´À³¦À» ±â¾ïÇÏµµ·Ï µ¶ÈÄ°¨À» ¾µ±î?)");
+		System.out.print("µ¶ÈÄ°¨À» ¾²½Ã°Ú½À´Ï±î? yes/no : ");
+		String write_essay = in.next();
 
-        System.out.print("ì–´ëŠ ë¶€ìœ„ë¥¼ ìš´ë™í•˜ì‹œê² ìŠµë‹ˆê¹Œ? 1.ìƒì²´ 2.í•˜ì²´");
-        int routine = in.nextInt();
+		// µ¶ÈÄ°¨
+		if (write_essay.equals("yes")) { // Objects °´Ã¼¸í ¼öÁ¤ÇÏ±â
+			System.out.println(name + " °øÁÖ: (¿ª½Ã ÀÌ ´À³¦À» ±â¾ïÇÏµµ·Ï µ¶ÈÄ°¨À» ¾²´Â°Ô ³´°Ú¾î!)");
+			System.out.println();
 
-        if (routine == 1) {
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ìƒì²´ ë£¨í‹´ì€ êµ¬ì²´ì ìœ¼ë¡œ ì´ë‘-ë“±-ì‚¼ë‘ ì…ë‹ˆë‹¤.");
-            System.out.println("-- ìƒì²´ ìš´ë™ì„ ì‹œì‘í•©ë‹ˆë‹¤ --");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ìƒì²´ ì›œì—…ë¶€í„° í•˜ê² ìŠµë‹ˆë‹¤. ì–´ê¹¨ ë¡¤ë§ 10íšŒ í•´ì£¼ì„¸ìš”.");
-            System.out.println(name + " ê³µì£¼: í—›, ë‘˜, í—›, ë‘˜");
-            System.out.println();
+			System.out.print("µ¶ÈÄ°¨ ÀÛ¼º: ");
+			in.nextLine();
+			StringBuilder book_essay = new StringBuilder();
+			String line;
+			while (!(line = in.nextLine()).isEmpty()) {
+				book_essay.append(line);
+				book_essay.append("\n");
+			}
+			System.out.println();
+			System.out.println(book_essay);
 
-            System.out.println("-- ë«í’€ë‹¤ìš´ ìš´ë™ ê¸°êµ¬ ì•ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤ --");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ì ë«í’€ë‹¤ìš´ 3ì„¸íŠ¸ 10íšŒ ì§„í–‰í•©ë‹ˆë‹¤.");
-            System.out.println(name + " ê³µì£¼: í›„ í•˜ í›„ í•˜");
-            System.out.println();
+			Character.plusIntelligence(4);
+			Character.plusCharm(2);
+		} else {
+			System.out.println(name + " °øÁÖ: (À½.. ±×³É ´ÙÀ½¿¡ ¾²ÀÚ.)");
 
-            System.out.println("-- ë¤ë²¨ ì»¬ ìš´ë™ ê¸°êµ¬ ì•ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤ --");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ì ë¤ë²¨ ì»¬ 3ì„¸íŠ¸ 10íšŒ ì§„í–‰í•©ë‹ˆë‹¤.");
-            System.out.println(name + " ê³µì£¼: ë™ ì°¨ ë„ìœ¼ì‘...");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ë‹¤ì„¯! ì—¬ì„¯! ..");
-            System.out.println();
+			Character.plusIntelligence(2);
+			Character.plusCharm(1);
+		}
 
-            System.out.println("-- íŠ¸ë¼ì´ì…‰ìŠ¤ í”„ë ˆìŠ¤ë‹¤ìš´ ìš´ë™ ê¸°êµ¬ ì•ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤ --");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ì ë§ˆì§€ë§‰ì…ë‹ˆë‹¤ ê³µì£¼ë‹˜. 3ì„¸íŠ¸ 10íšŒ ì§„í–‰í•©ë‹ˆë‹¤.");
-            System.out.println(name + " ê³µì£¼: íì–´ì–µ.. ë” ì´ìƒì€...");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: no pain, no gain! ì´ëŒ€ë¡œ í¬ê¸°í•˜ë©´ ì•„ë¬´ê²ƒë„ ì•ˆë©ë‹ˆë‹¤ ê³µì£¼ë‹˜.");
-            System.out.println();
+		GameMain.plusdayTime(4);
+	}
 
-            System.out.println("-- ìƒì²´ ìš´ë™ì„ ë§ˆì³¤ìŠµë‹ˆë‹¤ --");
+	// 3. ¿îµ¿ÇÏ±â
+	public void exercise() {
+		Scanner in = new Scanner(System.in);
 
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ê³µì£¼ë‹˜, ìˆ˜ê³ í•˜ì…¨ìŠµë‹ˆë‹¤. ì˜¤ëŠ˜ ìê¸° ì „ì— ëƒ‰ìˆ˜ ìƒ¤ì›Œ í•˜ê³  ì£¼ë¬´ì‹œê³ ìš”.. ìš´ë™í•˜ëŸ¬ ë˜ ì˜¤ì‹¤ê±°ì£ ? ");
-            System.out.println(name + " ê³µì£¼: (ìœ½..ã…¡ã…¡)");
-        }
-        else if (routine == 2) {
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: í•˜ì²´ ë£¨í‹´ì€ êµ¬ì²´ì ìœ¼ë¡œ í—ˆë²…ì§€-í™ ì…ë‹ˆë‹¤.");
-            System.out.println("-- í•˜ì²´ ìš´ë™ì„ ì‹œì‘í•©ë‹ˆë‹¤ --");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: í•˜ì²´ ì›œì—…ë¶€í„° í•˜ê² ìŠµë‹ˆë‹¤. ê¸°ë³¸ ìŠ¤ì¿¼íŠ¸ 10íšŒ í•´ì£¼ì„¸ìš”.");
-            System.out.println(name + " ê³µì£¼: ìœ¼ìŒ° ìœ¼ìŒ°");
-            System.out.println();
+		System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: °øÁÖ´Ô ´Ü¹éÁú Ã¬°Ü µå¼ÌÁÒ? ¾Æ´Ï¶õ ¸»Àº ÇÏÁö ¸»¾ÆÁÖ¼¼¿ä.");
+		System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ¿À´ÃÀº ¾î´À ºÎÀ§¸¦ ¿îµ¿ ÇÏ½Ç°Ç°¡¿ä?");
+		System.out.println();
 
-            System.out.println("-- ë ˆê·¸ í”„ë ˆìŠ¤ ìš´ë™ ê¸°êµ¬ ì•ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤ --");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ì ë ˆê·¸ í”„ë ˆìŠ¤ 3ì„¸íŠ¸ 10íšŒ ì§„í–‰í•©ë‹ˆë‹¤.");
-            System.out.println(name + " ê³µì£¼: í›„ í•˜ í›„ í•˜");
-            System.out.println();
+		System.out.print("¾î´À ºÎÀ§¸¦ ¿îµ¿ÇÏ½Ã°Ú½À´Ï±î? 1.»óÃ¼ 2.ÇÏÃ¼");
+		int routine = in.nextInt();
 
-            System.out.println("-- ë ˆê·¸ ìµìŠ¤í…ì…˜ ìš´ë™ ê¸°êµ¬ ì•ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤ --");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ì ë ˆê·¸ ìµìŠ¤í…ì…˜ 3ì„¸íŠ¸ 10íšŒ ì§„í–‰í•©ë‹ˆë‹¤.");
-            System.out.println(name + " ê³µì£¼: ë™ ì°¨ ë„ìœ¼ì‘...");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ë‹¤ì„¯! ì—¬ì„¯! .. ê±°ì˜ ë‹¤ ì™”ìŠµë‹ˆë‹¤ ê³µì£¼ë‹˜.");
-            System.out.println();
+		if (routine == 1) {
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: »óÃ¼ ·çÆ¾Àº ±¸Ã¼ÀûÀ¸·Î ÀÌµÎ-µî-»ïµÎ ÀÔ´Ï´Ù.");
+			System.out.println("-- »óÃ¼ ¿îµ¿À» ½ÃÀÛÇÕ´Ï´Ù --");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: »óÃ¼ ¿ú¾÷ºÎÅÍ ÇÏ°Ú½À´Ï´Ù. ¾î±ú ·Ñ¸µ 10È¸ ÇØÁÖ¼¼¿ä.");
+			System.out.println(name + " °øÁÖ: Çê, µÑ, Çê, µÑ");
+			System.out.println();
 
-            System.out.println("-- í™ ì–´ë¸Œë•ì…˜ ìš´ë™ ê¸°êµ¬ ì•ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤ --");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ì ë§ˆì§€ë§‰ì…ë‹ˆë‹¤ ê³µì£¼ë‹˜. 3ì„¸íŠ¸ 10íšŒ ì§„í–‰í•©ë‹ˆë‹¤.");
-            System.out.println(name + " ê³µì£¼: íì–´ì–µ.. ë” ì´ìƒì€...");
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: no pain, no gain! ì´ëŒ€ë¡œ í¬ê¸°í•˜ë©´ ì•„ë¬´ê²ƒë„ ì•ˆë©ë‹ˆë‹¤ ê³µì£¼ë‹˜.");
-            System.out.println();
+			System.out.println("-- ·§Ç®´Ù¿î ¿îµ¿ ±â±¸ ¾ÕÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù --");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ÀÚ ·§Ç®´Ù¿î 3¼¼Æ® 10È¸ ÁøÇàÇÕ´Ï´Ù.");
+			System.out.println(name + " °øÁÖ: ÈÄ ÇÏ ÈÄ ÇÏ");
+			System.out.println();
 
-            System.out.println("-- í•˜ì²´ ìš´ë™ì„ ë§ˆì³¤ìŠµë‹ˆë‹¤ --");
+			System.out.println("-- ´ıº§ ÄÃ ¿îµ¿ ±â±¸ ¾ÕÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù --");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ÀÚ ´ıº§ ÄÃ 3¼¼Æ® 10È¸ ÁøÇàÇÕ´Ï´Ù.");
+			System.out.println(name + " °øÁÖ: ²ş Â÷ ²ôÀ¸ÀÀ...");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ´Ù¼¸! ¿©¼¸! ..");
+			System.out.println();
 
-            System.out.println("í¬ë¦¬ìŠ¤ ë²”ìŠ¤í…Œë“œ íŠ¸ë ˆì´ë„ˆ: ê³µì£¼ë‹˜, ìˆ˜ê³ í•˜ì…¨ìŠµë‹ˆë‹¤. ì˜¤ëŠ˜ ìê¸° ì „ì— ëƒ‰ìˆ˜ ìƒ¤ì›Œ í•˜ê³  ì£¼ë¬´ì‹œê³ ìš”.. ìš´ë™í•˜ëŸ¬ ë˜ ì˜¤ì‹¤ê±°ì£ ? ");
-            System.out.println(name + " ê³µì£¼: (ìœ½..ã…¡ã…¡)");
-        }
-    }
+			System.out.println("-- Æ®¶óÀÌ¼Á½º ÇÁ·¹½º´Ù¿î ¿îµ¿ ±â±¸ ¾ÕÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù --");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ÀÚ ¸¶Áö¸·ÀÔ´Ï´Ù °øÁÖ´Ô. 3¼¼Æ® 10È¸ ÁøÇàÇÕ´Ï´Ù.");
+			System.out.println(name + " °øÁÖ: Èå¾î¾ï.. ´õ ÀÌ»óÀº...");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: no pain, no gain! ÀÌ´ë·Î Æ÷±âÇÏ¸é ¾Æ¹«°Íµµ ¾ÈµË´Ï´Ù °øÁÖ´Ô.");
+			System.out.println();
 
-    // 4. í™”ì¥í•˜ê¸°
-    public void makeUp() {
-        System.out.println("-- ê³µì£¼ê°€ í™”ì¥ëŒ€ ì•ì— ì•‰ì•˜ë‹¤ --");
-        System.out.println("í™”ì¥ ë¯¸ë‹ˆê²Œì„ íƒ€ì„ !");
+			System.out.println("-- »óÃ¼ ¿îµ¿À» ¸¶ÃÆ½À´Ï´Ù --");
 
-        // í™”ì¥ miniGame class
-        MiniGame makeupGame = new MiniGame();
-        makeupGame.makeUp_game();
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: °øÁÖ´Ô, ¼ö°íÇÏ¼Ì½À´Ï´Ù. ¿À´Ã ÀÚ±â Àü¿¡ ³Ã¼ö »ş¿ö ÇÏ°í ÁÖ¹«½Ã°í¿ä.. ¿îµ¿ÇÏ·¯ ¶Ç ¿À½Ç°ÅÁÒ? ");
+			System.out.println(name + " °øÁÖ: (À¹..¤Ñ¤Ñ)");
+		} else if (routine == 2) {
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ÇÏÃ¼ ·çÆ¾Àº ±¸Ã¼ÀûÀ¸·Î Çã¹÷Áö-Èü ÀÔ´Ï´Ù.");
+			System.out.println("-- ÇÏÃ¼ ¿îµ¿À» ½ÃÀÛÇÕ´Ï´Ù --");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ÇÏÃ¼ ¿ú¾÷ºÎÅÍ ÇÏ°Ú½À´Ï´Ù. ±âº» ½ºÄõÆ® 10È¸ ÇØÁÖ¼¼¿ä.");
+			System.out.println(name + " °øÁÖ: À¸›X À¸›X");
+			System.out.println();
 
-    }
+			System.out.println("-- ·¹±× ÇÁ·¹½º ¿îµ¿ ±â±¸ ¾ÕÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù --");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ÀÚ ·¹±× ÇÁ·¹½º 3¼¼Æ® 10È¸ ÁøÇàÇÕ´Ï´Ù.");
+			System.out.println(name + " °øÁÖ: ÈÄ ÇÏ ÈÄ ÇÏ");
+			System.out.println();
 
-    // 5. ì ìê¸°
-    public void sleep() {
-        // ëœë¤ ì‹œê°„ ìˆ˜ë©´ -> ìˆ˜ë©´ ì‹œê°„ ë”°ë¼ ì²´ë ¥ ì¦ê°
-        System.out.println("-- ê³µì£¼ê°€ ì¹¨ëŒ€ì— ëˆ„ì› ë‹¤ --");
+			System.out.println("-- ·¹±× ÀÍ½ºÅÙ¼Ç ¿îµ¿ ±â±¸ ¾ÕÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù --");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ÀÚ ·¹±× ÀÍ½ºÅÙ¼Ç 3¼¼Æ® 10È¸ ÁøÇàÇÕ´Ï´Ù.");
+			System.out.println(name + " °øÁÖ: ²ş Â÷ ²ôÀ¸ÀÀ...");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ´Ù¼¸! ¿©¼¸! .. °ÅÀÇ ´Ù ¿Ô½À´Ï´Ù °øÁÖ´Ô.");
+			System.out.println();
 
-        // ëœë¤í•œ ìˆ˜ë©´ ì‹œê°„ ìƒì„± (1~10 ì‚¬ì´)
-        Random random = new Random();
-        int sleepTime = random.nextInt(10) + 1;
+			System.out.println("-- Èü ¾îºê´ö¼Ç ¿îµ¿ ±â±¸ ¾ÕÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù --");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: ÀÚ ¸¶Áö¸·ÀÔ´Ï´Ù °øÁÖ´Ô. 3¼¼Æ® 10È¸ ÁøÇàÇÕ´Ï´Ù.");
+			System.out.println(name + " °øÁÖ: Èå¾î¾ï.. ´õ ÀÌ»óÀº...");
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: no pain, no gain! ÀÌ´ë·Î Æ÷±âÇÏ¸é ¾Æ¹«°Íµµ ¾ÈµË´Ï´Ù °øÁÖ´Ô.");
+			System.out.println();
 
-        if (sleepTime >= 7) {
-            Character.plusHealth(10);
-        }
-        else if (sleepTime >= 4) {
-            Character.plusHealth(5);
-        }
-        else {
-            Character.plusHealth(1);
-        }
+			System.out.println("-- ÇÏÃ¼ ¿îµ¿À» ¸¶ÃÆ½À´Ï´Ù --");
 
-        System.out.println("ê³µì£¼ëŠ” " + sleepTime + "ì‹œê°„ ì ë“¤ì—ˆë‹¤");
-    }
-    
+			System.out.println("Å©¸®½º ¹ü½ºÅ×µå Æ®·¹ÀÌ³Ê: °øÁÖ´Ô, ¼ö°íÇÏ¼Ì½À´Ï´Ù. ¿À´Ã ÀÚ±â Àü¿¡ ³Ã¼ö »ş¿ö ÇÏ°í ÁÖ¹«½Ã°í¿ä.. ¿îµ¿ÇÏ·¯ ¶Ç ¿À½Ç°ÅÁÒ? ");
+			System.out.println(name + " °øÁÖ: (À¹..¤Ñ¤Ñ)");
+		}
+
+		Character.plusHealth(3);
+		Character.plusCharm(2);
+		GameMain.plusdayTime(4);
+	}
+
+	// 4. È­ÀåÇÏ±â
+	public void makeUp() {
+		System.out.println("-- °øÁÖ°¡ È­Àå´ë ¾Õ¿¡ ¾É¾Ò´Ù --");
+		System.out.println("È­Àå ¹Ì´Ï°ÔÀÓ Å¸ÀÓ !");
+
+		// È­Àå miniGame class
+		MiniGame makeupGame = new MiniGame();
+		makeupGame.makeUp_game();
+
+	}
+
+	// 5. ÀáÀÚ±â
+	public void sleep() {
+		// ·£´ı ½Ã°£ ¼ö¸é -> ¼ö¸é ½Ã°£ µû¶ó Ã¼·Â Áõ°¨
+		System.out.println("-- °øÁÖ°¡ Ä§´ë¿¡ ´©¿ü´Ù --");
+
+		// ·£´ıÇÑ ¼ö¸é ½Ã°£ »ı¼º (1~10 »çÀÌ)
+		Random random = new Random();
+		int sleepTime = random.nextInt(10) + 1;
+
+		Character.plusHealth(sleepTime);
+
+		System.out.println("°øÁÖ´Â " + sleepTime + "½Ã°£ Àáµé¾ú´Ù");
+	}
 
 }

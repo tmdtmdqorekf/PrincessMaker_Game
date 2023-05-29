@@ -1,118 +1,131 @@
-package í”„ë¦°ì„¸ìŠ¤ë©”ì´ì»¤;
+package princessMaker;
 
 public class Ending {
 
-    public Ending(){
-        //ìƒì„±ìž
-    }
-    
-    public void EndCheck(){
-    if(Character.health >= 100 && Character.charm <= 50 && Character.intelligence <= 50 && Character.morality >= 50){
-        kniteEnd();
-    }else if(Character.health >= 80 && Character.charm <= 40 && Character.intelligence <= 40 && Character.morality >= 40){
-        guardEnd();
-    }else if(Character.health >= 60 && Character.charm <= 30 && Character.intelligence <= 30 && Character.morality >= 60){
-        gateEnd();
-    }else if(Character.health >= 50 && Character.charm >= 100 && Character.intelligence <= 50 && Character.morality >= 50){
-        princessEnd();
-    }else if(Character.health <= 40 && Character.charm >= 80 && Character.intelligence <= 40 && Character.morality >= 40){
-        royalEnd();
-    }else if(Character.health <= 30 && Character.charm >= 60 && Character.intelligence <= 30 && Character.morality >= 60){
-        maidEnd();
-    }else if(Character.health >= 50 && Character.charm <= 50 && Character.intelligence >= 100 && Character.morality >= 50){
-        professerEnd();
-    }else if(Character.health <= 40 && Character.charm <= 40 && Character.intelligence >= 80 && Character.morality >= 40){
-        writerEnd();
-    }else if(Character.health <= 50 && Character.charm <= 50 && Character.intelligence >= 60 && Character.morality <= 30){
-        trickEnd();
-    }else if(Character.health <= 50 && Character.charm <= 30 && Character.intelligence <= 50 && Character.morality >= 80){
-        nunEnd();
-    }else if(Character.health <= 40 && Character.charm >= 60 && Character.intelligence <= 40 && Character.morality >= 60){
-        merchantEnd();
-    }else if(Character.health <= 30 && Character.charm <= 50 && Character.intelligence <= 30 && Character.morality <= 30){
-        thiefEnd();
-    }else{
-        noEnd();
-        }
-    }
-    public void kniteEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ìš©ê°í•œ ê¸°ì‚¬ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ë§ˆì¹¨ë‚´ ì•…ë‹¹ì„ ë¬¼ë¦¬ì¹˜ê³  ì™•êµ­ì„ êµ¬í•œ í›„, ê³µì£¼ì˜ ì‚¬ëž‘ì„ ë°›ì•˜ìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì€ ì˜ì›…ìœ¼ë¡œì„œ ë¬´í•œí•œ ì˜ê´‘ê³¼ ëª…ì˜ˆë¥¼ ì–»ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-    }
+	public Ending() {
+		// »ý¼ºÀÚ
+	}
 
-    public void guardEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ê²½ë¹„ë³‘ìœ¼ë¡œ ì¼í•˜ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ì™•êµ­ì˜ í‰í™”ë¥¼ ì§€í‚¤ê¸° ìœ„í•´ ë°¤ë‚® ì—†ì´ ìˆ˜ë¹„ì— ë‚˜ì„°ê³ , ê·¸ ê³µë¡œë¥¼ ì¸ì •ë°›ì•˜ìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì€ ìš©ê°í•˜ê³  ì¶©ì§í•œ ê²½ë¹„ë³‘ìœ¼ë¡œì„œ ì˜ì›ížˆ ê¸°ì–µë  ê²ƒìž…ë‹ˆë‹¤.");
-    }
+	public void EndCheck() {
+		if (Character.health >= 100 && Character.charm <= 50 && Character.intelligence <= 50
+				&& Character.morality >= 50) {
+			kniteEnd();
+		} else if (Character.health >= 80 && Character.charm <= 40 && Character.intelligence <= 40
+				&& Character.morality >= 40) {
+			guardEnd();
+		} else if (Character.health >= 60 && Character.charm <= 30 && Character.intelligence <= 30
+				&& Character.morality >= 60) {
+			gateEnd();
+		} else if (Character.health >= 50 && Character.charm >= 100 && Character.intelligence <= 50
+				&& Character.morality >= 50) {
+			princessEnd();
+		} else if (Character.health <= 40 && Character.charm >= 80 && Character.intelligence <= 40
+				&& Character.morality >= 40) {
+			royalEnd();
+		} else if (Character.health <= 30 && Character.charm >= 60 && Character.intelligence <= 30
+				&& Character.morality >= 60) {
+			maidEnd();
+		} else if (Character.health >= 50 && Character.charm <= 50 && Character.intelligence >= 100
+				&& Character.morality >= 50) {
+			professerEnd();
+		} else if (Character.health <= 40 && Character.charm <= 40 && Character.intelligence >= 80
+				&& Character.morality >= 40) {
+			writerEnd();
+		} else if (Character.health <= 50 && Character.charm <= 50 && Character.intelligence >= 60
+				&& Character.morality <= 30) {
+			trickEnd();
+		} else if (Character.health <= 50 && Character.charm <= 30 && Character.intelligence <= 50
+				&& Character.morality >= 80) {
+			nunEnd();
+		} else if (Character.health <= 40 && Character.charm >= 60 && Character.intelligence <= 40
+				&& Character.morality >= 60) {
+			merchantEnd();
+		} else if (Character.health <= 30 && Character.charm <= 50 && Character.intelligence <= 30
+				&& Character.morality <= 30) {
+			thiefEnd();
+		} else {
+			noEnd();
+		}
+	}
 
-    public void gateEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ë¬¸ì§€ê¸°ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ì„±ë¬¸ì„ ì§€í‚¤ê³  ì¶œìž…ì„ í†µì œí•˜ëŠ” ì—­í• ì„ ë§¡ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-        System.out.println("ì™•êµ­ì˜ ì•ˆì „ì„ ìœ„í•´ ë…¸ë ¥í•˜ë©°, ì‚¬ëžŒë“¤ì—ê²Œ ì‹ ë¢°ë¥¼ ì£¼ëŠ” ë¬¸ì§€ê¸°ë¡œì„œ ëª…ì„±ì„ ì–»ì—ˆìŠµë‹ˆë‹¤.");
-    }
-    
-    public void princessEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ê³µì£¼ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("í›Œë¥­í•œ ì™•ìžì™€ì˜ ë¡œë§¨í‹±í•œ ê²°í˜¼ì‹ì„ ê°–ê³  ì™•êµ­ì˜ ì—¬ì™•ì´ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì€ ì•„ë¦„ë‹¤ìš´ ì™•ë¹„ë¡œì„œ êµ­ë¯¼ë“¤ì˜ ì‚¬ëž‘ê³¼ ì¡´ê²½ì„ ë°›ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-    }
+	public void kniteEnd() {
+		System.out.println("´ç½ÅÀº ¿ë°¨ÇÑ ±â»ç°¡ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("¸¶Ä§³» ¾Ç´çÀ» ¹°¸®Ä¡°í ¿Õ±¹À» ±¸ÇÑ ÈÄ, °øÁÖÀÇ »ç¶ûÀ» ¹Þ¾Ò½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀº ¿µ¿õÀ¸·Î¼­ ¹«ÇÑÇÑ ¿µ±¤°ú ¸í¿¹¸¦ ¾ò°Ô µÇ¾ú½À´Ï´Ù.");
+	}
 
-    public void royalEnd(){
-        System.out.println("ë‹¹ì‹ ì€ í›„ê¶ì´ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ì™•ì˜ ê³ì—ì„œ ê·¸ë¥¼ ëª¨ì‹œê³  ê·¸ë¥¼ ìœ„í•´ ì¶©ì„±ì„ ë‹¤í•˜ëŠ” ì‚¶ì„ ì„ íƒí–ˆìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì€ ì™•ì„ ìœ„í•œ ì¶©ì§í•œ í›„ê¶ìœ¼ë¡œì„œ ê¶ì¤‘ì—ì„œì˜ ìœ„ì„¸ë¥¼ ë†’ì˜€ìŠµë‹ˆë‹¤.");
-    }
+	public void guardEnd() {
+		System.out.println("´ç½ÅÀº °æºñº´À¸·Î ÀÏÇÏ°Ô µÇ¾ú½À´Ï´Ù!");
+		System.out.println("¿Õ±¹ÀÇ ÆòÈ­¸¦ ÁöÅ°±â À§ÇØ ¹ã³· ¾øÀÌ ¼öºñ¿¡ ³ª¼¹°í, ±× °ø·Î¸¦ ÀÎÁ¤¹Þ¾Ò½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀº ¿ë°¨ÇÏ°í ÃæÁ÷ÇÑ °æºñº´À¸·Î¼­ ¿µ¿øÈ÷ ±â¾ïµÉ °ÍÀÔ´Ï´Ù.");
+	}
 
-    public void maidEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ì‹œë…€ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ì™•ê¶ì—ì„œ ê³µì£¼ë¥¼ ëª¨ì‹œê³  ì„¬ê¸°ëŠ” ì¼ìƒì„ ì‚´ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì€ ì„¬ì„¸í•œ ë„ì›€ìœ¼ë¡œ ì™•ì¡±ì˜ ì‹ ë¢°ë¥¼ ì–»ê³ , ê¶ì¤‘ì—ì„œ ê°€ìž¥ ì‹ ëž„í•œ ì¹­ì°¬ì„ ë°›ì•˜ìŠµë‹ˆë‹¤.");
-    }
+	public void gateEnd() {
+		System.out.println("´ç½ÅÀº ¹®Áö±â°¡ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("¼º¹®À» ÁöÅ°°í ÃâÀÔÀ» ÅëÁ¦ÇÏ´Â ¿ªÇÒÀ» ¸Ã°Ô µÇ¾ú½À´Ï´Ù.");
+		System.out.println("¿Õ±¹ÀÇ ¾ÈÀüÀ» À§ÇØ ³ë·ÂÇÏ¸ç, »ç¶÷µé¿¡°Ô ½Å·Ú¸¦ ÁÖ´Â ¹®Áö±â·Î¼­ ¸í¼ºÀ» ¾ò¾ú½À´Ï´Ù.");
+	}
 
-    public void professerEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ê·€ì¡± ê°€ë¬¸ì˜ êµìˆ˜ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("íƒì›”í•œ ì§€ì‹ê³¼ êµì–‘ìœ¼ë¡œ ë§Žì€ í•™ìƒë“¤ì—ê²Œ ê°€ë¥´ì¹¨ì„ ì „í•˜ë©° êµìœ¡ì˜ ê¸¸ì— ì„œê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì€ ì² ì €í•œ êµìœ¡ê³¼ ì§„ì‹¬ ì–´ë¦° ë©˜í† ë§ìœ¼ë¡œ ë§Žì€ í•™ìƒë“¤ì˜ ì‚¬ëž‘ê³¼ ì¡´ê²½ì„ ë°›ì•˜ìŠµë‹ˆë‹¤.");
-    }
-    
-    public void writerEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ìž‘ê°€ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ë‹¨íŽ¸ ì†Œì„¤ë¶€í„° ìž¥íŽ¸ ì†Œì„¤ê¹Œì§€ ë‹¤ì–‘í•œ ìž‘í’ˆì„ í†µí•´ ì„¸ê³„ì ì¸ ëª…ì„±ì„ ì–»ì—ˆìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì˜ ìž‘í’ˆì€ ë§Žì€ ì‚¬ëžŒë“¤ì—ê²Œ ê°ë™ê³¼ ì˜ê°ì„ ì£¼ë©° ì˜êµ¬ì ì¸ ë¬¸í•™ì  ê°€ì¹˜ë¥¼ ì§€ë‹ˆê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-    }
-    
-    public void trickEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ì‚¬ê¸°ê¾¼ì´ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("êµë¬˜í•œ ì†œì”¨ë¡œ ì‚¬ëžŒë“¤ì„ ì†ì´ê³ , ë¶€ì™€ ëª…ì˜ˆë¥¼ ì–»ëŠ” ì‚¬ê¸°ì˜ ì„¸ê³„ì— ë°œì„ ë“¤ì˜€ìŠµë‹ˆë‹¤.");
-        System.out.println("í•˜ì§€ë§Œ ê²°êµ­ì€ ìžì‹ ë„ ì†ìž„ë‹¹í•  ìœ„í—˜ì— ë¹ ì§€ë©° ë¹„ì°¸í•œ ë§ˆì¹¨ì„ ë§žê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-    }
-    
-    public void nunEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ê²½ê±´í•œ ìˆ˜ë…€ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ì‹ ì•™ì‹¬ê³¼ ì²­ë ´í•œ ë§ˆìŒìœ¼ë¡œ ìˆ˜ë„ì›ì—ì„œ í‰í™”ë¡œìš´ ì‚¶ì„ ì‚¬ëŠ” ì¼ì— ì „ë…í•˜ì˜€ìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì˜ ì‹ ì•™ì‹¬ê³¼ ì¸ë‚´ë ¥ì€ ë§Žì€ ì‚¬ëžŒë“¤ì—ê²Œ í¬ë§ê³¼ ìœ„ë¡œë¥¼ ì£¼ì—ˆìŠµë‹ˆë‹¤.");
-    }
-    
-    public void merchantEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ê·€ì¡± ìƒì¸ì´ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ìž˜ëŒì•„ê°€ëŠ” ìƒì—… ì œêµ­ì„ êµ¬ì¶•í•˜ì—¬ ë§Žì€ ë¶€ë¥¼ ì¶•ì í•˜ì˜€ìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì€ ê·€ì¡±ë“¤ì˜ ì‹ ë¢°ë¥¼ ì–»ìœ¼ë©° ì™•êµ­ ê²½ì œì— í° ê¸°ì—¬ë¥¼ í•˜ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-    }
-    
-    public void thiefEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ë„ë‘‘ì´ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ìˆ ì·¨í•œ ë°¤, ì–´ë‘ìš´ ê·¸ëŠ˜ì—ì„œ ì‚¬ëžŒë“¤ì˜ ì†Œì§€í’ˆì„ í›”ì¹˜ëŠ” ì¼ì— ë§¤ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
-        System.out.println("í•˜ì§€ë§Œ ë¹„ë°€ë¦¬ì— ì‚¬ëŠ” ì‚¶ì€ ìœ„í—˜ê³¼ ë¶ˆì•ˆì— ê°€ë“ì°¨ë©°, ê²°êµ­ì—ëŠ” ì‚¬íšŒì˜ ë²•ê³¼ ë²Œì— ê±¸ë¦¬ê²Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì€ ë§ˆì§€ë§‰ìœ¼ë¡œ ë„ë‘‘ì˜ ê¸¸ì„ ë– ë‚ ì§€ í˜¹ì€ ì˜¬ë°”ë¥¸ ì‚¶ì„ ì„ íƒí• ì§€ ê³ ë¯¼í•˜ê²Œ ë©ë‹ˆë‹¤.");
-    }
-    
-    public static void noEnd(){
-        System.out.println("ë‹¹ì‹ ì€ ë¬´ì§ì´ ë˜ì—ˆìŠµë‹ˆë‹¤!");
-        System.out.println("ì—¬ëŸ¬ ì§ì—…ì„ ê²½í—˜í•˜ë©° ìžì‹ ì˜ ì—­ëŸ‰ê³¼ ê´€ì‹¬ ë¶„ì•¼ë¥¼ ì°¾ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
-        System.out.println("í•˜ì§€ë§Œ ê·¸ë ‡ë‹¤ê³  í•´ì„œ í¬ê¸°í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. ë” ë‚˜ì€ ë¯¸ëž˜ë¥¼ ìœ„í•´ ë…¸ë ¥í•˜ë©° ìƒˆë¡œìš´ ê¸°íšŒë¥¼ ê¸°ë‹¤ë¦¬ëŠ” ì¤‘ìž…ë‹ˆë‹¤.");
-        System.out.println("ë‹¹ì‹ ì€ ë‚´ì¼ì˜ ê°€ëŠ¥ì„±ê³¼ ë¬´ê¶í•œ ìž ìž¬ë ¥ì„ í’ˆê³  ìžˆëŠ” ì¡´ìž¬ìž…ë‹ˆë‹¤.");
-    }
-    
+	public void princessEnd() {
+		System.out.println("´ç½ÅÀº °øÁÖ°¡ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("ÈÇ¸¢ÇÑ ¿ÕÀÚ¿ÍÀÇ ·Î¸ÇÆ½ÇÑ °áÈ¥½ÄÀ» °®°í ¿Õ±¹ÀÇ ¿©¿ÕÀÌ µÇ¾ú½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀº ¾Æ¸§´Ù¿î ¿Õºñ·Î¼­ ±¹¹ÎµéÀÇ »ç¶û°ú Á¸°æÀ» ¹Þ°Ô µÇ¾ú½À´Ï´Ù.");
+	}
+
+	public void royalEnd() {
+		System.out.println("´ç½ÅÀº ÈÄ±ÃÀÌ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("¿ÕÀÇ °ç¿¡¼­ ±×¸¦ ¸ð½Ã°í ±×¸¦ À§ÇØ Ãæ¼ºÀ» ´ÙÇÏ´Â »îÀ» ¼±ÅÃÇß½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀº ¿ÕÀ» À§ÇÑ ÃæÁ÷ÇÑ ÈÄ±ÃÀ¸·Î¼­ ±ÃÁß¿¡¼­ÀÇ À§¼¼¸¦ ³ô¿´½À´Ï´Ù.");
+	}
+
+	public void maidEnd() {
+		System.out.println("´ç½ÅÀº ½Ã³à°¡ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("¿Õ±Ã¿¡¼­ °øÁÖ¸¦ ¸ð½Ã°í ¼¶±â´Â ÀÏ»óÀ» »ì°Ô µÇ¾ú½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀº ¼¶¼¼ÇÑ µµ¿òÀ¸·Î ¿ÕÁ·ÀÇ ½Å·Ú¸¦ ¾ò°í, ±ÃÁß¿¡¼­ °¡Àå ½Å¶öÇÑ ÄªÂùÀ» ¹Þ¾Ò½À´Ï´Ù.");
+	}
+
+	public void professerEnd() {
+		System.out.println("´ç½ÅÀº ±ÍÁ· °¡¹®ÀÇ ±³¼ö°¡ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("Å¹¿ùÇÑ Áö½Ä°ú ±³¾çÀ¸·Î ¸¹Àº ÇÐ»ýµé¿¡°Ô °¡¸£Ä§À» ÀüÇÏ¸ç ±³À°ÀÇ ±æ¿¡ ¼­°Ô µÇ¾ú½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀº Ã¶ÀúÇÑ ±³À°°ú Áø½É ¾î¸° ¸àÅä¸µÀ¸·Î ¸¹Àº ÇÐ»ýµéÀÇ »ç¶û°ú Á¸°æÀ» ¹Þ¾Ò½À´Ï´Ù.");
+	}
+
+	public void writerEnd() {
+		System.out.println("´ç½ÅÀº ÀÛ°¡°¡ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("´ÜÆí ¼Ò¼³ºÎÅÍ ÀåÆí ¼Ò¼³±îÁö ´Ù¾çÇÑ ÀÛÇ°À» ÅëÇØ ¼¼°èÀûÀÎ ¸í¼ºÀ» ¾ò¾ú½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀÇ ÀÛÇ°Àº ¸¹Àº »ç¶÷µé¿¡°Ô °¨µ¿°ú ¿µ°¨À» ÁÖ¸ç ¿µ±¸ÀûÀÎ ¹®ÇÐÀû °¡Ä¡¸¦ Áö´Ï°Ô µÇ¾ú½À´Ï´Ù.");
+	}
+
+	public void trickEnd() {
+		System.out.println("´ç½ÅÀº »ç±â²ÛÀÌ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("±³¹¦ÇÑ ¼Ø¾¾·Î »ç¶÷µéÀ» ¼ÓÀÌ°í, ºÎ¿Í ¸í¿¹¸¦ ¾ò´Â »ç±âÀÇ ¼¼°è¿¡ ¹ßÀ» µé¿´½À´Ï´Ù.");
+		System.out.println("ÇÏÁö¸¸ °á±¹Àº ÀÚ½Åµµ ¼ÓÀÓ´çÇÒ À§Çè¿¡ ºüÁö¸ç ºñÂüÇÑ ¸¶Ä§À» ¸Â°Ô µÇ¾ú½À´Ï´Ù.");
+	}
+
+	public void nunEnd() {
+		System.out.println("´ç½ÅÀº °æ°ÇÇÑ ¼ö³à°¡ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("½Å¾Ó½É°ú Ã»·ÅÇÑ ¸¶À½À¸·Î ¼öµµ¿ø¿¡¼­ ÆòÈ­·Î¿î »îÀ» »ç´Â ÀÏ¿¡ Àü³äÇÏ¿´½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀÇ ½Å¾Ó½É°ú ÀÎ³»·ÂÀº ¸¹Àº »ç¶÷µé¿¡°Ô Èñ¸Á°ú À§·Î¸¦ ÁÖ¾ú½À´Ï´Ù.");
+	}
+
+	public void merchantEnd() {
+		System.out.println("´ç½ÅÀº ±ÍÁ· »óÀÎÀÌ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("Àßµ¹¾Æ°¡´Â »ó¾÷ Á¦±¹À» ±¸ÃàÇÏ¿© ¸¹Àº ºÎ¸¦ ÃàÀûÇÏ¿´½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀº ±ÍÁ·µéÀÇ ½Å·Ú¸¦ ¾òÀ¸¸ç ¿Õ±¹ °æÁ¦¿¡ Å« ±â¿©¸¦ ÇÏ°Ô µÇ¾ú½À´Ï´Ù.");
+	}
+
+	public void thiefEnd() {
+		System.out.println("´ç½ÅÀº µµµÏÀÌ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("¼úÃëÇÑ ¹ã, ¾îµÎ¿î ±×´Ã¿¡¼­ »ç¶÷µéÀÇ ¼ÒÁöÇ°À» ÈÉÄ¡´Â ÀÏ¿¡ ¸Å·áµÇ¾ú½À´Ï´Ù.");
+		System.out.println("ÇÏÁö¸¸ ºñ¹Ð¸®¿¡ »ç´Â »îÀº À§Çè°ú ºÒ¾È¿¡ °¡µæÂ÷¸ç, °á±¹¿¡´Â »çÈ¸ÀÇ ¹ý°ú ¹ú¿¡ °É¸®°Ô µÇ¾ú½À´Ï´Ù.");
+		System.out.println("´ç½ÅÀº ¸¶Áö¸·À¸·Î µµµÏÀÇ ±æÀ» ¶°³¯Áö È¤Àº ¿Ã¹Ù¸¥ »îÀ» ¼±ÅÃÇÒÁö °í¹ÎÇÏ°Ô µË´Ï´Ù.");
+	}
+
+	public static void noEnd() {
+		System.out.println("´ç½ÅÀº ¹«Á÷ÀÌ µÇ¾ú½À´Ï´Ù!");
+		System.out.println("¿©·¯ Á÷¾÷À» °æÇèÇÏ¸ç ÀÚ½ÅÀÇ ¿ª·®°ú °ü½É ºÐ¾ß¸¦ Ã£Áö ¸øÇß½À´Ï´Ù.");
+		System.out.println("ÇÏÁö¸¸ ±×·¸´Ù°í ÇØ¼­ Æ÷±âÇÏÁö ¾Ê¾Ò½À´Ï´Ù. ´õ ³ªÀº ¹Ì·¡¸¦ À§ÇØ ³ë·ÂÇÏ¸ç »õ·Î¿î ±âÈ¸¸¦ ±â´Ù¸®´Â ÁßÀÔ´Ï´Ù.");
+		System.out.println("´ç½ÅÀº ³»ÀÏÀÇ °¡´É¼º°ú ¹«±ÃÇÑ ÀáÀç·ÂÀ» Ç°°í ÀÖ´Â Á¸ÀçÀÔ´Ï´Ù.");
+	}
+
 }
